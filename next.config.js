@@ -5,6 +5,6 @@ const nextConfig = {
     loader: "default",
     domains: ["localhost"],
   },
-}
+};
 
-module.exports = nextConfig
+module.exports = nextConfig;
