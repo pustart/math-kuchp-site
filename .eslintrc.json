@@ -14,6 +14,7 @@
   ],
   "rules": {
     "prettier/prettier": "warn",
+    "react/jsx-props-no-spreading": "warn",
     "indent": [
       "warn",
       2
@@ -22,6 +23,7 @@
   },
   "extends": [
    "airbnb",
+   "next",
    "prettier"
   ]
 }
