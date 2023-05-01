@@ -1,0 +1,56 @@
+.footer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  background-color: #44BBA8;
+}
+
+.footerText {
+  margin-top: -4%;
+
+  color: #FFF;
+
+  font-family: Inter, serif;
+  font-size: 14px;
+}
+
+.footerInfo {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+
+  width: 65%;
+}
+
+.footerEmblemBlock {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+  width: 80%;
+  margin-left: 10%;
+}
+
+.socials {
+  margin-right: 12%;
+}
+
+.footerLine {
+  width: 80%;
+
+  color: #FFF;
+}
+
+.footerLink {
+  display: flex;
+  flex-direction: row;
+}
+
+.footerLinkUniversity {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+
+  margin-left: 5%;
+}
