@@ -1,6 +1,5 @@
 import React, { useState } from "react";
-// eslint-disable-next-line import/no-extraneous-dependencies
-import {Layout, Menu } from "antd";
+import { Layout, Menu } from "antd";
 import Image from "next/image";
 import classes from "./Navbar.module.css";
 import pic from "../../public/logo.png";
@@ -44,7 +43,7 @@ function Navbar() {
       <div className={classes.header}>
         <div className={classes.emblem}>
           <div className={classes.emblemPic}>
-            <Image width={150} height={150} src={pic} alt="emblem"/>
+            <Image width={150} height={150} src={pic} alt="emblem" />
           </div>
           <div className={classes.emblemText}>
             Кафедра уравнений в частных производных и теории вероятностей
