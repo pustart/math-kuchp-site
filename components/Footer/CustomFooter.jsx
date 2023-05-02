@@ -11,21 +11,21 @@ import vk from "../../public/VK.svg";
 const { Paragraph } = Typography;
 const { Footer } = Layout;
 
-function CustomFooter() {
+function CustomFooter({ contacts }) {
   return (
     <Footer className={classes.footer}>
       <div className={classes.footerInfo}>
         <Typography>
           <Paragraph className={classes.footerText}>Адрес</Paragraph>
-          <Paragraph className={classes.footerText}>Воронеж, Университетская пл., 1</Paragraph>
+          <Paragraph className={classes.footerText}>{contacts.attributes.address}</Paragraph>
           <Paragraph className={classes.footerText}>Телефон</Paragraph>
-          <Paragraph className={classes.footerText}>+7 (XXX) XXX-XX-XX</Paragraph>
+          <Paragraph className={classes.footerText}>{contacts.attributes.general_number}</Paragraph>
         </Typography>
         <Typography>
           <Paragraph className={classes.footerText}>Деканат</Paragraph>
-          <Paragraph className={classes.footerText}>каб. XXX X-XXX-XXX X-XXX-XXX</Paragraph>
+          <Paragraph className={classes.footerText}>{contacts.attributes.dean_number}</Paragraph>
           <Paragraph className={classes.footerText}>Почта</Paragraph>
-          <Paragraph className={classes.footerText}>math.kuchp@gmail.com</Paragraph>
+          <Paragraph className={classes.footerText}>{contacts.attributes.email}</Paragraph>
         </Typography>
       </div>
       <hr className={classes.footerLine} />

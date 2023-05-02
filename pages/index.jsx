@@ -6,10 +6,11 @@ import classes from "../styles/mainPage.module.css";
 import pieChart from "../public/pieChart.png";
 import boyAndGirl from "../public/boyandgirl.png";
 import CustomFooter from "../components/Footer/CustomFooter";
+import { fetchAPI } from "../lib/api";
 
 const { Title, Paragraph } = Typography;
 
-export default function Home() {
+export default function Home({ contacts }) {
   const router = useRouter();
 
   return (
@@ -82,8 +83,21 @@ export default function Home() {
             </div>
           </div>
         </div>
-        <CustomFooter />
+        <CustomFooter contacts={contacts} />
       </div>
     </div>
   );
+}
+
+export async function getStaticProps() {
+  const contacts = await fetchAPI("contact", {
+    fields: ["email", "general_number", "dean_number", "address"],
+  });
+
+  return {
+    props: {
+      contacts: contacts.data,
+    },
+    revalidate: 1,
+  };
 }
