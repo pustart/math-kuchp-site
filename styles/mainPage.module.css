@@ -28,6 +28,7 @@
   justify-content: flex-start;
 
   margin-top: 5%;
+  margin-bottom: 5%;
   margin-left: 12%;
 }
 
@@ -37,9 +38,9 @@
   grid-template:
     "news qa about"
     "news methodics about";
-  grid-template-rows: repeat(2, 200px);
+  grid-template-rows: repeat(2, 55%);
   grid-gap: 20px;
-  grid-template-columns: repeat(3, 420px);
+  grid-template-columns: repeat(3, 33%);
 
   margin-bottom: 5%;
 }
@@ -61,13 +62,32 @@
 }
 
 .extraButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
   width: 70%;
   height: 50px;
   margin-top: 2%;
 
+  text-align: center;
+
+  color: #FFF;
+
   border-radius: 20px;
 
   background-color: #44BBA8;
+
+  font-family: Inter, serif;
+  font-size: 20px;
+  font-weight: 500;
+  font-style: normal;
+}
+
+.extraButton:hover {
+  cursor: pointer;
+
+  background-color: #348376;
 }
 
 .methodics {
@@ -120,7 +140,7 @@
 
   border-radius: 30px;
 
-  background: linear-gradient(89.05deg, #BEEEC3 12.31%, #44BBA8 99.39%, rgb(68 187 168 / 0%) 99.39%);
+  background: linear-gradient(89.05deg, #BEEEC3 12.31%, #44BBA8 100%, rgb(68 187 168 / 0%) 100%);
 }
 
 .methodicsCard {

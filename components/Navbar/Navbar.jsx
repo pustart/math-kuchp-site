@@ -4,17 +4,11 @@ import {Layout, Menu } from "antd";
 import Image from "next/image";
 import classes from "./Navbar.module.css";
 import pic from "../../public/logo.png";
+import {DownOutlined} from "@ant-design/icons";
+import {useRouter} from "next/navigation";
 
 function Navbar() {
-  function getItem(label, key, children, icon, type) {
-    return {
-      key,
-      children,
-      label,
-      icon,
-      type,
-    };
-  }
+  const router = useRouter();
 
   const items = [
     {
@@ -25,11 +19,26 @@ function Navbar() {
       label: "Новости",
       key: "app",
     },
-    getItem("Студентам", "SubMenuForStudents", [
-      getItem("Списки студентов", "1"),
-      getItem("Методички", "2"),
-      getItem("Q&A", "3"),
-    ]),
+    {
+      label: (
+        <div  className={classes.studentsDropdown} >
+          Студентам
+          <DownOutlined style={{marginLeft:"5%"}} />
+        </div>
+      ),
+      key: 'SubMenu',
+      children: [
+        {
+          label: 'Списки студентов',
+        },
+        {
+          label: 'Методички',
+        },
+        {
+          label: 'Q&A'
+        },
+      ],
+    },
     {
       label: "Преподаватели",
       key: "professors",
@@ -46,7 +55,7 @@ function Navbar() {
           <div className={classes.emblemPic}>
             <Image width={150} height={150} src={pic} alt="emblem"/>
           </div>
-          <div className={classes.emblemText}>
+          <div onClick={() => router.push("/")} className={classes.emblemText}>
             Кафедра уравнений в частных производных и теории вероятностей
           </div>
         </div>

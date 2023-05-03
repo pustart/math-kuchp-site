@@ -1,4 +1,4 @@
-import { Button, Card, Typography } from "antd";
+import {Card, Typography, theme} from "antd";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import Navbar from "../components/Navbar/Navbar";
@@ -8,7 +8,6 @@ import boyAndGirl from "../public/boyandgirl.png";
 import CustomFooter from "../components/Footer/CustomFooter";
 
 const { Title, Paragraph } = Typography;
-
 export default function Home() {
   const router = useRouter();
 
@@ -25,9 +24,9 @@ export default function Home() {
                 профессор Селим Григорьевич Крейн.
               </Paragraph>
             </Typography>
-            <Button className={classes.extraButton} type="primary">
-              Узнать подробнее
-            </Button>
+            <div onClick={() => router.push("/about")} className={classes.extraButton} >
+                Узнать подробнее
+            </div>
           </div>
           <div className={classes.aboutBlockChart}>
             <Image src={pieChart} height={400} width={400} alt="pieChart" />
@@ -67,7 +66,7 @@ export default function Home() {
               </Card>
             </div>
             <div className={classes.about}>
-              <Card onClick={() => router.push("/about")} hoverable className={classes.aboutCard}>
+              <Card onClick={() => router.push("/about")} hoverable bordered={false} className={classes.aboutCard}>
                 <div className={classes.cardTitle}>О кафедре</div>
               </Card>
             </div>

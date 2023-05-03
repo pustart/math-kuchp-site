@@ -18,9 +18,15 @@
 .footerInfo {
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: space-between;
 
-  width: 65%;
+  width: 80%;
+
+  margin-left: 10%;
+}
+
+.socials {
+  margin-right: 6%;
 }
 
 .footerEmblemBlock {
@@ -30,10 +36,6 @@
 
   width: 80%;
   margin-left: 10%;
-}
-
-.socials {
-  margin-right: 12%;
 }
 
 .footerLine {

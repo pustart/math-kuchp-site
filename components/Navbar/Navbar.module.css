@@ -20,9 +20,8 @@
 }
 
 .navbar {
-  margin-left: -25%;
-
   font-size: 16px;
+
 }
 
 .emblem {
@@ -36,6 +35,8 @@
 .emblemText {
   margin-top: 10%;
   margin-left: -2%;
+
+  cursor: pointer;
 
   color: rgb(0 0 0 / 80%);
 

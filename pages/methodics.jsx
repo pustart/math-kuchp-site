@@ -2,7 +2,7 @@ import React from "react";
 import Navbar from "../components/Navbar/Navbar";
 import CustomFooter from "../components/Footer/CustomFooter";
 
-function News() {
+function Methodics() {
   return (
     <div>
       <Navbar />
@@ -12,4 +12,4 @@ function News() {
   );
 }
 
-export default News;
+export default Methodics;
