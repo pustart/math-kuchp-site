@@ -150,7 +150,7 @@ function About({ contacts }) {
           <div className={styles["special-courses-bac"]}>
             <Card className={styles["special-courses-bac-card"]}>
               <div className={styles["card-number"]}>
-                <Image src={number1} width={40} height={40} alt="number1" />
+                <Image src={number1} width={40} height={40} alt="Номер один." />
               </div>
               <div className={styles["card-title"]}>Для бакалавров</div>
               <div className={styles["card-list"]}>
@@ -161,7 +161,7 @@ function About({ contacts }) {
           <div className={styles["special-courses-master"]}>
             <Card className={styles["special-courses-master-card"]}>
               <div className={styles["card-number"]}>
-                <Image src={number2} width={40} height={40} alt="number2" />
+                <Image src={number2} width={40} height={40} alt="Номер два." />
               </div>
               <div className={styles["card-title"]}>Для магистров</div>
               <div>
@@ -172,7 +172,7 @@ function About({ contacts }) {
           <div className={styles["special-courses-spec"]}>
             <Card className={styles["special-courses-spec-card"]}>
               <div className={styles["card-number"]}>
-                <Image src={number3} width={40} height={40} alt="number3" />
+                <Image src={number3} width={40} height={40} alt="Номер три." />
               </div>
               <div className={styles["card-title"]}>Для cпециалистов</div>
               <div>
@@ -183,7 +183,7 @@ function About({ contacts }) {
           <div className={styles["special-courses-pic"]}>
             <Card className={styles["special-courses-pic-card"]}>
               <div>
-                <Image src={cardPic} width={350} alt="graduate" />
+                <Image src={cardPic} width={350} alt="Декоративная картинка." />
               </div>
             </Card>
           </div>

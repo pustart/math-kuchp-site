@@ -1,7 +1,7 @@
 @import url("normalize");
 
 :root {
-  --base-strong: #000;
+  --base-strong: rgb(0 0 0 / 80%);
   --base-weak: #FFF;
   --faint-strong: #80858A;
   --faint-weak: #E8E8E8;
@@ -12,6 +12,25 @@
   --light-blue: #BED9EE;
   --light-green: #BEEEC3;
   --font-family: "Inter", sans-serif;
+  --light-red-grad:
+    linear-gradient(
+      180deg,
+      var(--light-red) 0%,
+      rgb(248 164 164 / 0%) 100%
+    );
+  --light-blue-grad:
+    linear-gradient(
+      90.91deg,
+      var(--light-blue) 0.67%,
+      rgb(190 217 238 / 0%) 99.21%
+    );
+  --light-green-grad:
+    linear-gradient(
+      89.05deg,
+      var(--light-green) 12.31%,
+      var(--accent-strong) 99.39%,
+      rgb(68 187 168 / 0%) 99.39%
+    );
 }
 
 html,
@@ -47,28 +66,6 @@ h4,
 h5,
 h6 {
   font-weight: 600;
-}
-
-.fancy {
-  --light-red:
-    linear-gradient(
-      180deg,
-      var(--light-red) 0%,
-      rgb(248 164 164 / 0%) 100%
-    );
-  --light-blue:
-    linear-gradient(
-      90.91deg,
-      var(--light-blue) 0.67%,
-      rgb(190 217 238 / 0%) 99.21%
-    );
-  --light-green:
-    linear-gradient(
-      89.05deg,
-      var(--light-green) 12.31%,
-      var(--accent-strong) 99.39%,
-      rgb(68 187 168 / 0%) 99.39%
-    );
 }
 
 .rounded {

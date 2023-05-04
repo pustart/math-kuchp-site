@@ -3,15 +3,15 @@
   flex-direction: column;
   justify-content: center;
 
-  background-color: #44BBA8;
+  background-color: var(--accent-strong);
 }
 
 .footer-text {
   margin-top: -4%;
 
-  color: #FFF;
+  color: var(--base-weak);
 
-  font-family: Inter, serif;
+  font-family: var(--font-family);
   font-size: 14px;
 }
 
@@ -41,7 +41,7 @@
 .footer-line {
   width: 80%;
 
-  color: #FFF;
+  color: var(--base-weak);
 }
 
 .footer-link {
