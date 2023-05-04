@@ -1,0 +1,193 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.about-block {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+
+  margin-top: 2%;
+}
+
+.about-block-text {
+  width: 30%;
+  margin-left: -2%;
+}
+
+.about-block-chart {
+  width: 30%;
+}
+
+.main-info {
+  display: flex;
+  align-items: stretch;
+  flex-direction: column;
+  justify-content: center;
+
+  margin-top: 5%;
+  margin-bottom: 5%;
+}
+
+.main-info-title {
+  margin-left: 5%;
+}
+
+.cards {
+  display: grid;
+
+  justify-content: center;
+
+  min-height: 552px;
+
+  margin-right: 5%;
+
+  margin-bottom: 5%;
+  margin-left: 5%;
+
+  grid-template:
+    "news qa about"
+    "news methodics about";
+  grid-template-rows: repeat(2, 1fr);
+  grid-gap: 20px;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.news {
+  grid-area: news;
+}
+
+.qa {
+  grid-area: qa;
+}
+
+.about {
+  grid-area: about;
+}
+
+.text-title {
+  font-size: 164px;
+}
+
+.extra-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 70%;
+  height: 50px;
+  margin-top: 2%;
+
+  text-align: center;
+
+  color: #FFF;
+
+  border-radius: 20px;
+
+  background-color: #44BBA8;
+
+  font-family: Inter, serif;
+  font-size: 20px;
+  font-weight: 500;
+  font-style: normal;
+}
+
+.extra-button:hover {
+  cursor: pointer;
+
+  background-color: #348376;
+}
+
+.methodics {
+  grid-area: methodics;
+}
+
+.news-card {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  justify-content: flex-end;
+
+  width: 100%;
+  height: 100%;
+
+  border-radius: 30px;
+
+  background-color: #F8A4A4;
+}
+
+.qa-card {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: row;
+  justify-content: center;
+
+  width: 100%;
+  height: 100%;
+
+  border-radius: 30px;
+
+  background-color: #F3E7BC;
+}
+
+.qa-image {
+  align-self: flex-end;
+
+  height: 80%;
+  margin-left: 50%;
+}
+
+.about-card {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  justify-content: flex-end;
+
+  width: 100%;
+  height: 100%;
+
+  border-radius: 30px;
+
+  background: linear-gradient(89.05deg, #BEEEC3 12.31%, #44BBA8 100%, rgb(68 187 168 / 0%) 100%);
+}
+
+.methodics-card {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  justify-content: flex-end;
+
+  width: 100%;
+  height: 100%;
+
+  border-radius: 30px;
+
+  background-color: #BED9EE;
+}
+
+.card-title {
+  align-self: flex-end;
+
+  vertical-align: top;
+  letter-spacing: 0.02em;
+
+  color: #FFF;
+
+  font-family: Inter, serif;
+  font-size: 28px;
+  line-height: 100%;
+}
+
+.card-small-text {
+  color: #FFF;
+
+  font-size: 14px;
+}
+
+.card-big-text {
+  color: #FFF;
+
+  font-size: 20px;
+}

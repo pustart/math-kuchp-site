@@ -1,0 +1,57 @@
+.layout {
+  color: #FFF;
+}
+
+.header {
+  display: flex;
+  justify-content: space-around;
+
+  width: 100%;
+
+  background-color: #FFF;
+}
+
+.menu {
+  display: flex;
+
+  margin-top: 2%;
+
+  font-weight: 500;
+}
+
+.navbar {
+  font-size: 16px;
+}
+
+.emblem {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+  width: 600px;
+}
+
+.emblem-text {
+  margin-top: 10%;
+  margin-left: -2%;
+
+  cursor: pointer;
+
+  color: rgb(0 0 0 / 80%);
+
+  font-family: Inter, serif;
+
+  font-size: 24px;
+  font-weight: 600;
+  font-style: normal;
+}
+
+.logo {
+  float: left;
+
+  width: 25px;
+  height: 25px;
+  margin: 16px 24px 16px 0;
+
+  background: rgb(255 255 255 / 30%);
+}

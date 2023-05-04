@@ -1,0 +1,58 @@
+.footer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  background-color: #44BBA8;
+}
+
+.footer-text {
+  margin-top: -4%;
+
+  color: #FFF;
+
+  font-family: Inter, serif;
+  font-size: 14px;
+}
+
+.footer-info {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+  width: 80%;
+
+  margin-left: 10%;
+}
+
+.socials {
+  margin-right: 6%;
+}
+
+.footer-emblem-block {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+  width: 80%;
+  margin-left: 10%;
+}
+
+.footer-line {
+  width: 80%;
+
+  color: #FFF;
+}
+
+.footer-link {
+  display: flex;
+  flex-direction: row;
+}
+
+.footer-link-university {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+
+  margin-left: 5%;
+}

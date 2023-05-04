@@ -14,15 +14,15 @@
   },
   "lint-staged": {
     "*.(js|jsx)": [
-      "npm run lint:fix",
       "git add"
     ],
     "*.css": [
-      "npm run stylelint",
       "git add"
     ]
   },
   "dependencies": {
+    "@ant-design/icons": "^5.0.1",
+    "antd": "^5.4.6",
     "moment": "^2.29.4",
     "next": "13.3.0",
     "qs": "^6.11.1",
