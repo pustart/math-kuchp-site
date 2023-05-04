@@ -82,13 +82,13 @@
 
   text-align: center;
 
-  color: #FFF;
+  color: var(--base-weak);
 
   border-radius: 20px;
 
-  background-color: #44BBA8;
+  background-color: var(--accent-strong);
 
-  font-family: Inter, serif;
+  font-family: var(--font-family);
   font-size: 20px;
   font-weight: 500;
   font-style: normal;
@@ -97,7 +97,7 @@
 .extra-button:hover {
   cursor: pointer;
 
-  background-color: #348376;
+  background-color: var(--accent-strong-up);
 }
 
 .methodics {
@@ -115,7 +115,7 @@
 
   border-radius: 30px;
 
-  background-color: #F8A4A4;
+  background-color: var(--light-red);
 }
 
 .qa-card {
@@ -129,7 +129,7 @@
 
   border-radius: 30px;
 
-  background-color: #F3E7BC;
+  background-color: var(--light-yellow);
 }
 
 .qa-image {
@@ -150,7 +150,7 @@
 
   border-radius: 30px;
 
-  background: linear-gradient(89.05deg, #BEEEC3 12.31%, #44BBA8 100%, rgb(68 187 168 / 0%) 100%);
+  background: var(--light-green-grad);
 }
 
 .methodics-card {
@@ -164,7 +164,7 @@
 
   border-radius: 30px;
 
-  background-color: #BED9EE;
+  background-color: var(--light-blue);
 }
 
 .card-title {
@@ -173,21 +173,21 @@
   vertical-align: top;
   letter-spacing: 0.02em;
 
-  color: #FFF;
+  color: var(--base-weak);
 
-  font-family: Inter, serif;
+  font-family: var(--font-family);
   font-size: 28px;
   line-height: 100%;
 }
 
 .card-small-text {
-  color: #FFF;
+  color: var(--base-weak);
 
   font-size: 14px;
 }
 
 .card-big-text {
-  color: #FFF;
+  color: var(--base-weak);
 
   font-size: 20px;
 }
