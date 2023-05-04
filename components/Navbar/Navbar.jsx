@@ -1,19 +1,13 @@
 import React, { useState } from "react";
 import { Layout, Menu } from "antd";
 import Image from "next/image";
-import classes from "./Navbar.module.css";
+import { DownOutlined } from "@ant-design/icons";
+import { useRouter } from "next/navigation";
+import styles from "./Navbar.module.css";
 import pic from "../../public/logo.png";
 
 function Navbar() {
-  function getItem(label, key, children, icon, type) {
-    return {
-      key,
-      children,
-      label,
-      icon,
-      type,
-    };
-  }
+  const router = useRouter();
 
   const items = [
     {
@@ -24,11 +18,26 @@ function Navbar() {
       label: "Новости",
       key: "app",
     },
-    getItem("Студентам", "SubMenuForStudents", [
-      getItem("Списки студентов", "1"),
-      getItem("Методички", "2"),
-      getItem("Q&A", "3"),
-    ]),
+    {
+      label: (
+        <div className={styles["students-dropdown"]}>
+          Студентам
+          <DownOutlined style={{ marginLeft: "5%" }} />
+        </div>
+      ),
+      key: "SubMenu",
+      children: [
+        {
+          label: "Списки студентов",
+        },
+        {
+          label: "Методички",
+        },
+        {
+          label: "Q&A",
+        },
+      ],
+    },
     {
       label: "Преподаватели",
       key: "professors",
@@ -39,20 +48,20 @@ function Navbar() {
     setCurrent(e.key);
   };
   return (
-    <Layout className={classes.layout}>
-      <div className={classes.header}>
-        <div className={classes.emblem}>
-          <div className={classes.emblemPic}>
+    <Layout className={styles.layout}>
+      <div className={styles.header}>
+        <div className={styles.emblem}>
+          <div className={styles["emblem-pic"]}>
             <Image width={150} height={150} src={pic} alt="emblem" />
           </div>
-          <div className={classes.emblemText}>
+          <div onClick={() => router.push("/")} className={styles["emblem-text"]}>
             Кафедра уравнений в частных производных и теории вероятностей
           </div>
         </div>
 
-        <div className={classes.menu}>
+        <div className={styles.menu}>
           <Menu
-            className={classes.navbar}
+            className={styles.navbar}
             style={{ border: "none", width: 500, marginTop: 35 }}
             theme="light"
             onClick={onClickHandler}

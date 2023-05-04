@@ -3,7 +3,7 @@ import Navbar from "../components/Navbar/Navbar";
 import CustomFooter from "../components/Footer/CustomFooter";
 import { fetchAPI } from "../lib/api";
 
-function News({ contacts }) {
+function QA({ contacts }) {
   return (
     <div>
       <Navbar />
@@ -26,4 +26,4 @@ export async function getStaticProps() {
   };
 }
 
-export default News;
+export default QA;

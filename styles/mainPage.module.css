@@ -4,7 +4,7 @@
   justify-content: space-around;
 }
 
-.aboutBlock {
+.about-block {
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
@@ -12,43 +12,54 @@
   margin-top: 2%;
 }
 
-.aboutBlockText {
+.about-block-text {
   width: 30%;
   margin-left: -2%;
 }
 
-.aboutBlockChart {
+.about-block-chart {
   width: 30%;
 }
 
-.mainInfo {
+.main-info {
   display: flex;
-  align-items: flex-start;
+  align-items: stretch;
   flex-direction: column;
-  justify-content: flex-start;
+  justify-content: center;
 
   margin-top: 5%;
-  margin-left: 12%;
+  margin-bottom: 5%;
+}
+
+.main-info-title {
+  margin-left: 5%;
 }
 
 .cards {
   display: grid;
 
+  justify-content: center;
+
+  min-height: 552px;
+
+  margin-right: 5%;
+
+  margin-bottom: 5%;
+  margin-left: 5%;
+
   grid-template:
     "news qa about"
     "news methodics about";
-  grid-template-rows: repeat(2, 200px);
+  grid-template-rows: repeat(2, 1fr);
   grid-gap: 20px;
-  grid-template-columns: repeat(3, 420px);
-
-  margin-bottom: 5%;
+  grid-template-columns: repeat(3, 1fr);
 }
 
 .news {
   grid-area: news;
 }
 
-.QA {
+.qa {
   grid-area: qa;
 }
 
@@ -56,25 +67,44 @@
   grid-area: about;
 }
 
-.textTitle {
+.text-title {
   font-size: 164px;
 }
 
-.extraButton {
+.extra-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
   width: 70%;
   height: 50px;
   margin-top: 2%;
 
+  text-align: center;
+
+  color: #FFF;
+
   border-radius: 20px;
 
   background-color: #44BBA8;
+
+  font-family: Inter, serif;
+  font-size: 20px;
+  font-weight: 500;
+  font-style: normal;
+}
+
+.extra-button:hover {
+  cursor: pointer;
+
+  background-color: #348376;
 }
 
 .methodics {
   grid-area: methodics;
 }
 
-.newsCard {
+.news-card {
   display: flex;
   align-items: flex-start;
   flex-direction: column;
@@ -88,7 +118,7 @@
   background-color: #F8A4A4;
 }
 
-.qaCard {
+.qa-card {
   display: flex;
   align-items: flex-start;
   flex-direction: row;
@@ -102,14 +132,14 @@
   background-color: #F3E7BC;
 }
 
-.qaImage {
+.qa-image {
   align-self: flex-end;
 
   height: 80%;
   margin-left: 50%;
 }
 
-.aboutCard {
+.about-card {
   display: flex;
   align-items: flex-start;
   flex-direction: column;
@@ -120,10 +150,10 @@
 
   border-radius: 30px;
 
-  background: linear-gradient(89.05deg, #BEEEC3 12.31%, #44BBA8 99.39%, rgb(68 187 168 / 0%) 99.39%);
+  background: linear-gradient(89.05deg, #BEEEC3 12.31%, #44BBA8 100%, rgb(68 187 168 / 0%) 100%);
 }
 
-.methodicsCard {
+.methodics-card {
   display: flex;
   align-items: flex-start;
   flex-direction: column;
@@ -137,7 +167,7 @@
   background-color: #BED9EE;
 }
 
-.cardTitle {
+.card-title {
   align-self: flex-end;
 
   vertical-align: top;
@@ -150,13 +180,13 @@
   line-height: 100%;
 }
 
-.cardSmallText {
+.card-small-text {
   color: #FFF;
 
   font-size: 14px;
 }
 
-.cardBigText {
+.card-big-text {
   color: #FFF;
 
   font-size: 20px;

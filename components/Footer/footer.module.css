@@ -6,7 +6,7 @@
   background-color: #44BBA8;
 }
 
-.footerText {
+.footer-text {
   margin-top: -4%;
 
   color: #FFF;
@@ -15,15 +15,21 @@
   font-size: 14px;
 }
 
-.footerInfo {
+.footer-info {
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: space-between;
 
-  width: 65%;
+  width: 80%;
+
+  margin-left: 10%;
 }
 
-.footerEmblemBlock {
+.socials {
+  margin-right: 6%;
+}
+
+.footer-emblem-block {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -32,22 +38,18 @@
   margin-left: 10%;
 }
 
-.socials {
-  margin-right: 12%;
-}
-
-.footerLine {
+.footer-line {
   width: 80%;
 
   color: #FFF;
 }
 
-.footerLink {
+.footer-link {
   display: flex;
   flex-direction: row;
 }
 
-.footerLinkUniversity {
+.footer-link-university {
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;

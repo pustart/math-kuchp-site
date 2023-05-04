@@ -1,0 +1,159 @@
+.container {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.picture {
+  width: 80%;
+}
+
+.about-block {
+  display: grid;
+
+  width: 80%;
+  margin-top: 4%;
+  margin-left: 5%;
+  grid-template: "text card";
+  grid-gap: 20px;
+  grid-template-columns: 40% 30%;
+  grid-column-gap: 20%;
+}
+
+.about-block-text {
+  grid-area: text;
+}
+
+.about-block-card {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+
+  grid-area: card;
+}
+
+.card {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+
+  width: 60%;
+  height: 120%;
+}
+
+.history-block {
+  width: 75%;
+  margin-top: 4%;
+}
+
+.history-block-text {
+  font-size: 14px;
+}
+
+.courses {
+  width: 75%;
+  margin-top: 4%;
+}
+
+.special-courses {
+  display: grid;
+
+  width: 75%;
+
+  margin-bottom: 5%;
+  grid-template:
+    "bac spec"
+    "bac spec"
+    "master spec"
+    "master empty";
+  grid-template-rows: 25% 25% 20% 30%;
+  grid-gap: 5px 10px;
+  grid-template-columns: 50% 50%;
+}
+
+.special-courses-title {
+  align-self: flex-start;
+
+  width: 75%;
+
+  margin-top: 4%;
+  margin-left: 13%;
+}
+
+.special-courses-bac {
+  grid-area: bac;
+}
+
+.special-courses-master {
+  grid-area: master;
+}
+
+.special-courses-spec {
+  grid-area: spec;
+}
+
+.special-courses-pic {
+  grid-area: empty;
+}
+
+.special-courses-bac-card {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: space-between;
+
+  width: 100%;
+  height: 100%;
+
+  border-radius: 40px;
+
+  background: #BEEEC3;
+}
+
+.special-courses-master-card {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: space-between;
+
+  width: 100%;
+  height: 100%;
+
+  border-radius: 40px;
+
+  background: #F3E7BC;
+}
+
+.special-courses-spec-card {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: space-between;
+
+  width: 100%;
+  height: 100%;
+
+  border-radius: 40px;
+
+  background: linear-gradient(180deg, #F8A4A4 0%, rgb(248 164 164 / 0%) 100%);
+}
+
+.special-courses-pic-card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 100%;
+  height: 100%;
+
+  border-radius: 40px;
+  background: linear-gradient(90deg, #BED9EE 0%, rgb(190 217 238 / 0%) 100%);
+}
+
+.card-title {
+  font-family: Inter, serif;
+  font-size: 28px;
+  font-weight: 700;
+}

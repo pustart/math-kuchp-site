@@ -1,7 +1,7 @@
 import React from "react";
 import { Typography, Layout } from "antd";
 import Image from "next/image";
-import classes from "./footer.module.css";
+import styles from "./footer.module.css";
 import logo from "../../public/Vgu_logo_svg.svg";
 import voronezh from "../../public/Group 87.svg";
 import state from "../../public/Group 89.svg";
@@ -13,28 +13,30 @@ const { Footer } = Layout;
 
 function CustomFooter({ contacts }) {
   return (
-    <Footer className={classes.footer}>
-      <div className={classes.footerInfo}>
+    <Footer className={styles.footer}>
+      <div className={styles["footer-info"]}>
         <Typography>
-          <Paragraph className={classes.footerText}>Адрес</Paragraph>
-          <Paragraph className={classes.footerText}>{contacts.attributes.address}</Paragraph>
-          <Paragraph className={classes.footerText}>Телефон</Paragraph>
-          <Paragraph className={classes.footerText}>{contacts.attributes.general_number}</Paragraph>
+          <Paragraph className={styles["footer-text"]}>Адрес</Paragraph>
+          <Paragraph className={styles["footer-text"]}>{contacts.attributes.address}</Paragraph>
+          <Paragraph className={styles["footer-text"]}>Телефон</Paragraph>
+          <Paragraph className={styles["footer-text"]}>
+            {contacts.attributes.general_number}
+          </Paragraph>
         </Typography>
         <Typography>
-          <Paragraph className={classes.footerText}>Деканат</Paragraph>
-          <Paragraph className={classes.footerText}>{contacts.attributes.dean_number}</Paragraph>
-          <Paragraph className={classes.footerText}>Почта</Paragraph>
-          <Paragraph className={classes.footerText}>{contacts.attributes.email}</Paragraph>
+          <Paragraph className={styles["footer-text"]}>Деканат</Paragraph>
+          <Paragraph className={styles["footer-text"]}>{contacts.attributes.dean_number}</Paragraph>
+          <Paragraph className={styles["footer-text"]}>Почта</Paragraph>
+          <Paragraph className={styles["footer-text"]}>{contacts.attributes.email}</Paragraph>
         </Typography>
       </div>
-      <hr className={classes.footerLine} />
-      <div className={classes.footerEmblemBlock}>
+      <hr className={styles["footer-line"]} />
+      <div className={styles["footer-emblem-block"]}>
         <div>
           <div>
-            <a href="http://www.vsu.ru/" target="_blank" className={classes.footerLink}>
+            <a href="http://www.vsu.ru/" target="_blank" className={styles["footer-link"]}>
               <Image src={logo} alt="logo" />
-              <div className={classes.footerLinkUniversity}>
+              <div className={styles["footer-link-university"]}>
                 <Image src={voronezh} alt="voronezh" />
                 <Image src={state} alt="state" />
                 <Image src={university} alt="university" />
@@ -42,9 +44,9 @@ function CustomFooter({ contacts }) {
             </a>
           </div>
         </div>
-        <div className={classes.socials}>
+        <div className={styles.socials}>
           <Typography>
-            <Paragraph className={classes.footerText}>Социальные сети</Paragraph>
+            <Paragraph className={styles["footer-text"]}>Социальные сети</Paragraph>
             <a href="https://vk.com/math_vsu">
               <Image src={vk} alt="vk" />
             </a>

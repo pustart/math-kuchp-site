@@ -1,8 +1,8 @@
-import { Button, Card, Typography } from "antd";
+import { Card, Typography } from "antd";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import Navbar from "../components/Navbar/Navbar";
-import classes from "../styles/mainPage.module.css";
+import styles from "../styles/mainPage.module.css";
 import pieChart from "../public/pieChart.png";
 import boyAndGirl from "../public/boyandgirl.png";
 import CustomFooter from "../components/Footer/CustomFooter";
@@ -16,9 +16,9 @@ export default function Home({ contacts }) {
   return (
     <div>
       <Navbar />
-      <div className={classes.container}>
-        <div className={classes.aboutBlock}>
-          <div className={classes.aboutBlockText}>
+      <div className={styles.container}>
+        <div className={styles["about-block"]}>
+          <div className={styles["about-block-text"]}>
             <Typography>
               <Title>Кафедра уравнений в частных производных и теории вероятностей</Title>
               <Paragraph>
@@ -26,30 +26,30 @@ export default function Home({ contacts }) {
                 профессор Селим Григорьевич Крейн.
               </Paragraph>
             </Typography>
-            <Button className={classes.extraButton} type="primary">
+            <div onClick={() => router.push("/about")} className={styles["extra-button"]}>
               Узнать подробнее
-            </Button>
+            </div>
           </div>
-          <div className={classes.aboutBlockChart}>
+          <div className={styles["about-block-chart"]}>
             <Image src={pieChart} height={400} width={400} alt="pieChart" />
           </div>
         </div>
 
-        <div className={classes.mainInfo}>
-          <h1>Главное о кафедре</h1>
-          <div className={classes.cards}>
-            <div className={classes.news}>
-              <Card onClick={() => router.push("/news")} hoverable className={classes.newsCard}>
-                <div className={classes.cardBigText} style={{ marginBottom: "5%" }}>
+        <div className={styles["main-info"]}>
+          <h1 className={styles["main-info-title"]}>Главное о кафедре</h1>
+          <div className={styles.cards}>
+            <div className={styles.news}>
+              <Card onClick={() => router.push("/news")} hoverable className={styles["news-card"]}>
+                <div className={styles["card-big-text"]} style={{ marginBottom: "5%" }}>
                   Программа и конспекты к коллоквиуму №3 по курсу Уравнения с частными производным
                 </div>
-                <div className={classes.cardSmallText} style={{ marginBottom: "30%" }}>
+                <div className={styles["card-small-text"]} style={{ marginBottom: "30%" }}>
                   26 декабря, 2017
                 </div>
-                <div className={classes.cardTitle}>Новости</div>
+                <div className={styles["card-title"]}>Новости</div>
               </Card>
             </div>
-            <div className={classes.QA}>
+            <div className={styles.qa}>
               <Card
                 onClick={() => router.push("/qa")}
                 bodyStyle={{
@@ -59,26 +59,31 @@ export default function Home({ contacts }) {
                   justifyContent: "space-between",
                 }}
                 hoverable
-                className={classes.qaCard}
+                className={styles["qa-card"]}
               >
-                <div className={classes.cardTitle}>Q&A</div>
-                <div className={classes.qaImage}>
+                <div className={styles["card-title"]}>Q&A</div>
+                <div className={styles["qa-image"]}>
                   <Image src={boyAndGirl} width={130} height={130} alt="boyAndGirl" />
                 </div>
               </Card>
             </div>
-            <div className={classes.about}>
-              <Card onClick={() => router.push("/about")} hoverable className={classes.aboutCard}>
-                <div className={classes.cardTitle}>О кафедре</div>
+            <div className={styles.about}>
+              <Card
+                onClick={() => router.push("/about")}
+                hoverable
+                bordered={false}
+                className={styles["about-card"]}
+              >
+                <div className={styles["card-title"]}>О кафедре</div>
               </Card>
             </div>
-            <div className={classes.methodics}>
+            <div className={styles.methodics}>
               <Card
                 onClick={() => router.push("/methodics")}
                 hoverable
-                className={classes.methodicsCard}
+                className={styles["methodics-card"]}
               >
-                <div className={classes.cardTitle}>Методички</div>
+                <div className={styles["card-title"]}>Методички</div>
               </Card>
             </div>
           </div>
