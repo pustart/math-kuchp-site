@@ -31,7 +31,7 @@ export default function Home({ contacts }) {
             </div>
           </div>
           <div className={styles["about-block-chart"]}>
-            <Image src={pieChart} height={400} width={400} alt="pieChart" />
+            <Image src={pieChart} height={400} width={400} alt="Декоративная картинка." />
           </div>
         </div>
 
@@ -63,7 +63,7 @@ export default function Home({ contacts }) {
               >
                 <div className={styles["card-title"]}>Q&A</div>
                 <div className={styles["qa-image"]}>
-                  <Image src={boyAndGirl} width={130} height={130} alt="boyAndGirl" />
+                  <Image src={boyAndGirl} width={130} height={130} alt="Декоративная картинка." />
                 </div>
               </Card>
             </div>

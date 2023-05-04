@@ -52,7 +52,7 @@ function Navbar() {
       <div className={styles.header}>
         <div className={styles.emblem}>
           <div className={styles["emblem-pic"]}>
-            <Image width={150} height={150} src={pic} alt="emblem" />
+            <Image width={150} height={150} src={pic} alt="Логотип математического факультета ВГУ." />
           </div>
           <div onClick={() => router.push("/")} className={styles["emblem-text"]}>
             Кафедра уравнений в частных производных и теории вероятностей

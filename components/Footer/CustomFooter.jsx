@@ -35,11 +35,11 @@ function CustomFooter({ contacts }) {
         <div>
           <div>
             <a href="http://www.vsu.ru/" target="_blank" className={styles["footer-link"]}>
-              <Image src={logo} alt="logo" />
+              <Image src={logo} alt="Логотип ВГУ." />
               <div className={styles["footer-link-university"]}>
-                <Image src={voronezh} alt="voronezh" />
-                <Image src={state} alt="state" />
-                <Image src={university} alt="university" />
+                <Image src={voronezh} alt="Воронежский" />
+                <Image src={state} alt="Государственный" />
+                <Image src={university} alt="Университет" />
               </div>
             </a>
           </div>
@@ -48,7 +48,7 @@ function CustomFooter({ contacts }) {
           <Typography>
             <Paragraph className={styles["footer-text"]}>Социальные сети</Paragraph>
             <a href="https://vk.com/math_vsu">
-              <Image src={vk} alt="vk" />
+              <Image src={vk} alt="Группа во ВКонатке." />
             </a>
           </Typography>
         </div>
