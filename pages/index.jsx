@@ -1,4 +1,4 @@
-import {Card, Typography, theme} from "antd";
+import { Card, Typography, theme } from "antd";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import Navbar from "../components/Navbar/Navbar";
@@ -25,7 +25,7 @@ export default function Home() {
               </Paragraph>
             </Typography>
             <div onClick={() => router.push("/about")} className={classes.extraButton} >
-                Узнать подробнее
+              Узнать подробнее
             </div>
           </div>
           <div className={classes.aboutBlockChart}>
