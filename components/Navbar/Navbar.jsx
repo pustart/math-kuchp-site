@@ -1,21 +1,22 @@
 import React, { useState } from "react";
-import { Layout, Menu } from "antd";
+import {Layout, Menu } from "antd";
 import Image from "next/image";
-import { DownOutlined } from "@ant-design/icons";
-import { useRouter } from "next/navigation";
 import styles from "./Navbar.module.css";
 import pic from "../../public/logo.png";
+import {DownOutlined} from "@ant-design/icons";
+import {useRouter} from "next/navigation";
+import Link from "next/link";
 
 function Navbar() {
   const router = useRouter();
 
   const items = [
     {
-      label: "О кафедре",
+      label: <Link className={styles["link"]} href="/about">О кафедре</Link>,
       key: "main",
     },
     {
-      label: "Новости",
+      label: <Link className={styles["link"]} href="/news">Новости</Link>,
       key: "app",
     },
     {
@@ -28,18 +29,18 @@ function Navbar() {
       key: "SubMenu",
       children: [
         {
-          label: "Списки студентов",
+          label:<Link className={styles["link"]} href="/students">Списки студентов</Link> ,
         },
         {
-          label: "Методички",
+          label: <Link className={styles["link"]} href="/methodics">Методички</Link>,
         },
         {
-          label: "Q&A",
+          label: <Link className={styles["link"]} href="/qa">Q&A</Link>
         },
       ],
     },
     {
-      label: "Преподаватели",
+      label: <Link className={styles["link"]} href="/professors">Преподаватели</Link>,
       key: "professors",
     },
   ];

@@ -26,9 +26,9 @@ export default function Home({ contacts }) {
                 профессор Селим Григорьевич Крейн.
               </Paragraph>
             </Typography>
-            <div onClick={() => router.push("/about")} className={styles["extra-button"]}>
-              Узнать подробнее
-            </div>
+            <button onClick={() => router.push("/about")} className={classes.extraButton} >
+                Узнать подробнее
+            </button>
           </div>
           <div className={styles["about-block-chart"]}>
             <Image src={pieChart} height={400} width={400} alt="Декоративная картинка." />

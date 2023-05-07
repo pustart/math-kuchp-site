@@ -1,19 +1,19 @@
 import React from "react";
-import { Space, Skeleton, Typography, Card } from "antd";
-import Image from "next/image";
 import Navbar from "../components/Navbar/Navbar";
 import CustomFooter from "../components/Footer/CustomFooter";
-import styles from "../styles/aboutPage.module.css";
+import {Space, Skeleton, Typography, Card} from "antd";
+import styles from "../styles/aboutPage.module.css"
+const { Meta } = Card;
 import CustomCollapse from "../components/Collapse/CustomCollapse";
 import PointedList from "../components/PointedList/PointedList";
 import { fetchAPI } from "../lib/api";
-import cardPic from "../public/graduate's hat and books.svg";
-import number1 from "../public/Number1BlackCircle.svg";
-import number2 from "../public/Number2BlackCircle.svg";
-import number3 from "../public/Number3BlackCircle.svg";
-
+import Image from "next/image";
 const { Meta } = Card;
 const { Title, Paragraph } = Typography;
+import cardPic from "../public/graduate's hat and books.svg"
+import number1 from "../public/Number1BlackCircle.svg"
+import number2 from "../public/Number2BlackCircle.svg"
+import number3 from "../public/Number3BlackCircle.svg"
 
 function About({ contacts }) {
   const data1 = [
@@ -136,12 +136,13 @@ function About({ contacts }) {
             направлению: «Математика», специализация «Уравнения в частных производных»
           </div>
         </div>
-        <div className={styles.courses}>
-          <h1>Курсы, которые читаются на кафедре</h1>
-          <hr />
-          <CustomCollapse data={data1} header="На математическом факультете" />
-          <br />
-          <CustomCollapse data={data1} header="На прочих факультетах" />
+        <div className={styles.courses} >
+            <h1>Курсы, которые читаются на кафедре</h1>
+            <hr size="1" color="#E8E8E8"/>
+            <CustomCollapse data={data1} header="На математическом факультете" />
+            <hr size="1" color="#E8E8E8"/>
+            <CustomCollapse  data={data1} header="На прочих факультетах" />
+            <hr size="1" color="#E8E8E8"/>
         </div>
         <div className={styles["special-courses-title"]}>
           <h1>Спецкурсы</h1>
