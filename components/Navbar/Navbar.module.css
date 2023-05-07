@@ -10,6 +10,11 @@
 
   background-color: #FFF;
 }
+.link:hover {
+  cursor: pointer;
+
+  color: #44BBA8;
+}
 
 .menu {
   display: flex;

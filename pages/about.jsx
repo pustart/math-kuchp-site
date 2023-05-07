@@ -6,7 +6,6 @@ import classes from "../styles/aboutPage.module.css"
 const { Meta } = Card;
 import CustomCollapse from "../components/Collapse/CustomCollapse";
 import PointedList from "../components/PointedList/PointedList";
-import boyAndGirl from "../public/boyandgirl.png";
 import Image from "next/image";
 const { Title, Paragraph } = Typography;
 import cardPic from "../public/graduate's hat and books.svg"
@@ -87,10 +86,11 @@ function About() {
         </div>
         <div className={classes.courses} >
             <h1>Курсы, которые читаются на кафедре</h1>
-            <hr/>
+            <hr size="1" color="#E8E8E8"/>
             <CustomCollapse data={data1} header="На математическом факультете" />
-            <br/>
+            <hr size="1" color="#E8E8E8"/>
             <CustomCollapse  data={data1} header="На прочих факультетах" />
+            <hr size="1" color="#E8E8E8"/>
         </div>
         <div className={classes.specialCoursesTitle} >
           <h1>Спецкурсы</h1>

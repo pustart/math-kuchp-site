@@ -1,0 +1,48 @@
+.one-prof-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+
+  width: 75%;
+  margin-left: 12%;
+  height: 50vh;
+  margin-bottom: 4%;
+}
+
+.image {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 33%;
+  background-color: #F8A4A4;
+}
+
+.info {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  justify-content: flex-start;
+  width: 66%;
+  margin-left: 4%;
+}
+
+.name {
+  font-family: Inter, serif;
+  font-size: 28px;
+  font-weight: 600;
+}
+
+.text {
+  margin-top: 4%;
+
+  color: rgb(0 0 0 / 80%);
+
+  font-family: Inter, serif;
+  font-size: 20px;
+  font-weight: 400;
+}
+
+.collapse {
+  margin-top: 4%;
+  width: 100%;
+}

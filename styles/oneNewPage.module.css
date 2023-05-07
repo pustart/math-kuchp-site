@@ -1,0 +1,31 @@
+.one-new-container {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  justify-content: flex-start;
+
+  width: 40%;
+  height: 50vh;
+  margin-top: 4%;
+  margin-left: 35%;
+}
+
+.date {
+  color: #44BBA8;
+
+  font-family: Inter, serif;
+  font-size: 20px;
+}
+
+.title {
+  font-family: Inter, serif;
+  font-size: 32px;
+  font-weight: 600;
+}
+
+.content {
+  margin-top: 4%;
+  color: rgba(0, 0, 0, 0.8);
+  font-family: Inter, serif;
+  font-size: 24px;
+}

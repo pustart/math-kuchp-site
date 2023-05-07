@@ -1,4 +1,4 @@
-import {Card, Typography, theme} from "antd";
+import {Card, Typography} from "antd";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import Navbar from "../components/Navbar/Navbar";
@@ -24,9 +24,9 @@ export default function Home() {
                 профессор Селим Григорьевич Крейн.
               </Paragraph>
             </Typography>
-            <div onClick={() => router.push("/about")} className={classes.extraButton} >
+            <button onClick={() => router.push("/about")} className={classes.extraButton} >
                 Узнать подробнее
-            </div>
+            </button>
           </div>
           <div className={classes.aboutBlockChart}>
             <Image src={pieChart} height={400} width={400} alt="pieChart" />

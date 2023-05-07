@@ -1,0 +1,47 @@
+.container {
+  display: flex;
+  flex-direction: column;
+
+  width: 75%;
+  margin-left: 12%;
+}
+
+.news-block {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+
+  margin-top: 4%;
+}
+
+.new-container {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  justify-content: flex-start;
+
+  width: 33%;
+  height: 250px;
+}
+
+.title {
+  font-size: 24px;
+  font-weight: 400;
+}
+
+.title:hover {
+  color: #44BBA8;
+
+  font-size: 24px;
+  font-weight: 400;
+  text-decoration-line: underline;
+}
+
+.date {
+  margin-top: 2%;
+
+  color: #80858A;
+
+  font-size: 14px;
+}
