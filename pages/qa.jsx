@@ -5,7 +5,7 @@ import { fetchAPI } from "../lib/api";
 import styles from "../styles/qaPage.module.css"
 import CustomCollapse from "../components/Collapse/CustomCollapse";
 
-function QA({ contacts }) {
+function QA({ contacts,questions }) {
 
   let fakequestions = [
     {
@@ -27,15 +27,15 @@ function QA({ contacts }) {
   ]
 
   return (
-    <div>
+    <div style={{display:"flex",flexDirection:"column",justifyContent:"flex-start"}}>
       <Navbar />
       <div className={styles["container"]} >
         <h1>Q&A</h1>
         <hr size="1" color="#E8E8E8" />
         <div className={styles["qa-block"]} >
-          {fakequestions.map(questionBlock =>
+          {questions.map(questionBlock =>
             <div className={styles["dropdown"]} >
-              <CustomCollapse header={questionBlock.title} data={questionBlock.questions}/>
+              <CustomCollapse header={questionBlock.attributes.question} data={questionBlock.attributes.answer.split("\n\n")}/>
               <hr size="1" color="#E8E8E8"/>
             </div>
           )}
@@ -50,10 +50,14 @@ export async function getStaticProps() {
   const contacts = await fetchAPI("contact", {
     fields: ["email", "general_number", "dean_number", "address"],
   });
+  const questions = await fetchAPI("vopros-otvets", {
+    fields: ["question", "answer"],
+  });
 
   return {
     props: {
       contacts: contacts.data,
+      questions:questions.data,
     },
     revalidate: 1,
   };

@@ -16,10 +16,10 @@ function CustomFooter({ contacts }) {
     <Footer className={styles.footer}>
       <div className={styles["footer-info"]}>
         <Typography>
-          <Paragraph className={styles["footer-text"]}>Адрес</Paragraph>
-          <Paragraph className={styles["footer-text"]}>{contacts.attributes.address}</Paragraph>
-          <Paragraph className={styles["footer-text"]}>Телефон</Paragraph>
-          <Paragraph className={styles["footer-text"]}>
+          <Paragraph className={styles["footer-alter-text"]}>Адрес</Paragraph>
+          <Paragraph className={styles["footer-alter-text"]}>{contacts.attributes.address}</Paragraph>
+          <Paragraph className={styles["footer-alter-text"]}>Телефон</Paragraph>
+          <Paragraph className={styles["footer-alter-text"]}>
             {contacts.attributes.general_number}
           </Paragraph>
         </Typography>

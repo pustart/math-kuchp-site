@@ -1,0 +1,19 @@
+.container {
+  width: 75%;
+  margin-left: 12%;
+}
+
+.qa-block {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  justify-content: flex-start;
+
+  width: 100%;
+  min-height: 50vh;
+  margin-bottom: 2%;
+}
+
+.dropdown {
+  width: 100%;
+}

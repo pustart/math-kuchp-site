@@ -25,7 +25,7 @@ function Methodics({ contacts }) {
   ]
 
   return (
-    <div>
+    <div style={{display:"flex",flexDirection:"column",justifyContent:"flex-start"}}>
       <Navbar />
       <div className={styles["container"]} >
         <h1>Методические пособия</h1>

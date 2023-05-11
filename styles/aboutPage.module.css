@@ -69,7 +69,8 @@
     "master spec"
     "master empty";
   grid-template-rows: 25% 25% 20% 30%;
-  grid-gap: 5px 10px;
+  grid-row-gap: 5px;
+  grid-column-gap: 10px;
   grid-template-columns: 50% 50%;
 }
 
@@ -109,7 +110,7 @@
 
   border-radius: 40px;
 
-  background: var(--light-green);
+  background: #BEEEC3;
 }
 
 .special-courses-master-card {
@@ -123,7 +124,7 @@
 
   border-radius: 40px;
 
-  background: var(--light-yellow);
+  background: #F3E7BC;
 }
 
 .special-courses-spec-card {
@@ -137,7 +138,7 @@
 
   border-radius: 40px;
 
-  background: var(--light-red-grad);
+  background: linear-gradient(180deg, #F8A4A4 0%, rgb(248 164 164 / 0%) 100%);
 }
 
 .special-courses-pic-card {
@@ -149,11 +150,14 @@
   height: 100%;
 
   border-radius: 40px;
-  background: var(--light-blue-grad);
+  background: linear-gradient(90deg, #BED9EE 0%, rgb(190 217 238 / 0%) 100%);
 }
 
 .card-title {
-  font-family: var(--font-family);
+  font-family: Inter, serif;
   font-size: 28px;
   font-weight: 700;
+}
+
+.card-number {
 }

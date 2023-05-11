@@ -14,7 +14,7 @@ export default function Home({ contacts }) {
   const router = useRouter();
 
   return (
-    <div>
+    <div style={{display:"flex",flexDirection:"column",justifyContent:"flex-start"}}>
       <Navbar />
       <div className={styles.container}>
         <div className={styles["about-block"]}>
@@ -26,7 +26,7 @@ export default function Home({ contacts }) {
                 профессор Селим Григорьевич Крейн.
               </Paragraph>
             </Typography>
-            <button onClick={() => router.push("/about")} className={classes.extraButton} >
+            <button onClick={() => router.push("/about")} className={styles["extra-button"]} >
                 Узнать подробнее
             </button>
           </div>
@@ -98,6 +98,7 @@ export async function getStaticProps() {
   const contacts = await fetchAPI("contact", {
     fields: ["email", "general_number", "dean_number", "address"],
   });
+
 
   return {
     props: {

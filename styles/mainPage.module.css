@@ -23,43 +23,33 @@
 
 .main-info {
   display: flex;
-  align-items: stretch;
+  align-items: flex-start;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
 
   margin-top: 5%;
   margin-bottom: 5%;
-}
-
-.main-info-title {
-  margin-left: 5%;
+  margin-left: 12%;
 }
 
 .cards {
   display: grid;
 
-  justify-content: center;
-
-  min-height: 552px;
-
-  margin-right: 5%;
-
-  margin-bottom: 5%;
-  margin-left: 5%;
-
   grid-template:
     "news qa about"
     "news methodics about";
-  grid-template-rows: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 55%);
   grid-gap: 20px;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(3, 33%);
+
+  margin-bottom: 5%;
 }
 
 .news {
   grid-area: news;
 }
 
-.qa {
+.QA {
   grid-area: qa;
 }
 
@@ -82,13 +72,14 @@
 
   text-align: center;
 
-  color: var(--base-weak);
+  color: #FFF;
+  border-style: none;
 
   border-radius: 20px;
 
-  background-color: var(--accent-strong);
+  background-color: #44BBA8;
 
-  font-family: var(--font-family);
+  font-family: Inter, serif;
   font-size: 20px;
   font-weight: 500;
   font-style: normal;
@@ -97,7 +88,7 @@
 .extra-button:hover {
   cursor: pointer;
 
-  background-color: var(--accent-strong-up);
+  background-color: #348376;
 }
 
 .methodics {
@@ -115,7 +106,7 @@
 
   border-radius: 30px;
 
-  background-color: var(--light-red);
+  background-color: #F8A4A4;
 }
 
 .qa-card {
@@ -129,7 +120,7 @@
 
   border-radius: 30px;
 
-  background-color: var(--light-yellow);
+  background-color: #F3E7BC;
 }
 
 .qa-image {
@@ -150,7 +141,7 @@
 
   border-radius: 30px;
 
-  background: var(--light-green-grad);
+  background: linear-gradient(89.05deg, #BEEEC3 12.31%, #44BBA8 100%, rgb(68 187 168 / 0%) 100%);
 }
 
 .methodics-card {
@@ -164,7 +155,7 @@
 
   border-radius: 30px;
 
-  background-color: var(--light-blue);
+  background-color: #BED9EE;
 }
 
 .card-title {
@@ -173,21 +164,21 @@
   vertical-align: top;
   letter-spacing: 0.02em;
 
-  color: var(--base-weak);
+  color: #FFF;
 
-  font-family: var(--font-family);
+  font-family: Inter, serif;
   font-size: 28px;
   line-height: 100%;
 }
 
 .card-small-text {
-  color: var(--base-weak);
+  color: #FFF;
 
   font-size: 14px;
 }
 
 .card-big-text {
-  color: var(--base-weak);
+  color: #FFF;
 
   font-size: 20px;
 }
