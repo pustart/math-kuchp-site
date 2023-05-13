@@ -7,49 +7,66 @@ import pieChart from "../public/pieChart.png";
 import boyAndGirl from "../public/boyandgirl.png";
 import CustomFooter from "../components/Footer/CustomFooter";
 import { fetchAPI } from "../lib/api";
+import 'moment/locale/ru';
+import Moment from "react-moment";
+import React from "react";
 
-const { Title, Paragraph } = Typography;
 
-export default function Home({ contacts }) {
+export default function Home({ contacts,freshNew }) {
   const router = useRouter();
 
   return (
     <div style={{display:"flex",flexDirection:"column",justifyContent:"flex-start"}}>
       <Navbar />
-      <div className={styles.container}>
-        <div className={styles["about-block"]}>
+      <main className={styles.container}>
+        <section className={styles["about-block"]}>
           <div className={styles["about-block-text"]}>
-            <Typography>
-              <Title>Кафедра уравнений в частных производных и теории вероятностей</Title>
-              <Paragraph>
+            <section>
+              <h1>Кафедра уравнений в частных производных и теории вероятностей</h1>
+              <p>
                 Она существует в ВГУ с 1964 года. Основателем кафедры и первым ее заведующим был
                 профессор Селим Григорьевич Крейн.
-              </Paragraph>
-            </Typography>
+              </p>
+            </section>
             <button onClick={() => router.push("/about")} className={styles["extra-button"]} >
                 Узнать подробнее
             </button>
+            <button onClick={() => router.push("/news")} className={styles["news-button"]} >
+              Новости о кафедре
+            </button>
           </div>
-          <div className={styles["about-block-chart"]}>
+          <figure className={styles["about-block-chart"]}>
             <Image src={pieChart} height={400} width={400} alt="Декоративная картинка." />
-          </div>
-        </div>
+          </figure>
+        </section>
 
-        <div className={styles["main-info"]}>
-          <h1 className={styles["main-info-title"]}>Главное о кафедре</h1>
-          <div className={styles.cards}>
-            <div className={styles.news}>
-              <Card onClick={() => router.push("/news")} hoverable className={styles["news-card"]}>
-                <div className={styles["card-big-text"]} style={{ marginBottom: "5%" }}>
-                  Программа и конспекты к коллоквиуму №3 по курсу Уравнения с частными производным
-                </div>
-                <div className={styles["card-small-text"]} style={{ marginBottom: "30%" }}>
-                  26 декабря, 2017
-                </div>
-                <div className={styles["card-title"]}>Новости</div>
+        <section className={styles["main-info"]}>
+          <h1>Главное о кафедре</h1>
+          <main className={styles.cards}>
+            <section className={styles.news}>
+              <Card
+                onClick={() => router.push("/news")}
+                hoverable
+                className={styles["news-card"]}
+                bodyStyle={{
+                  width: "100%",
+                  height: "87%",
+                  display: "flex",
+                  flexDirection:"column"
+                }}
+              >
+                <section className={styles["card-big-text"]} >
+                  {freshNew.title}
+                </section>
+                <section className={styles["card-small-text"]} >
+                  <Moment locale="ru" format="ll">
+                    {freshNew.publish_date}
+                  </Moment>
+                </section>
+                <section className={styles["card-news-title"]}>Новости</section>
               </Card>
-            </div>
-            <div className={styles.qa}>
+            </section>
+            <section className={styles.qa}>
               <Card
                 onClick={() => router.push("/qa")}
                 bodyStyle={{
@@ -61,13 +78,13 @@ export default function Home({ contacts }) {
                 hoverable
                 className={styles["qa-card"]}
               >
-                <div className={styles["card-title"]}>Q&A</div>
-                <div className={styles["qa-image"]}>
+                <section className={styles["card-title"]}>Q&A</section>
+                <figure className={styles["qa-image"]}>
                   <Image src={boyAndGirl} width={130} height={130} alt="Декоративная картинка." />
-                </div>
+                </figure>
               </Card>
-            </div>
-            <div className={styles.about}>
+            </section>
+            <section className={styles.about}>
               <Card
                 onClick={() => router.push("/about")}
                 hoverable
@@ -76,8 +93,8 @@ export default function Home({ contacts }) {
               >
                 <div className={styles["card-title"]}>О кафедре</div>
               </Card>
-            </div>
-            <div className={styles.methodics}>
+            </section>
+            <section className={styles.methodics}>
               <Card
                 onClick={() => router.push("/methodics")}
                 hoverable
@@ -85,11 +102,11 @@ export default function Home({ contacts }) {
               >
                 <div className={styles["card-title"]}>Методички</div>
               </Card>
-            </div>
-          </div>
-        </div>
+            </section>
+          </main>
+        </section>
         <CustomFooter contacts={contacts} />
-      </div>
+      </main>
     </div>
   );
 }
@@ -98,11 +115,16 @@ export async function getStaticProps() {
   const contacts = await fetchAPI("contact", {
     fields: ["email", "general_number", "dean_number", "address"],
   });
-
+  const news = await fetchAPI("novosti", {
+    fields: ["title", "publish_date", "body"],
+    sort: ['publish_date:desc'],
+  });
+  console.log(news.data[0])
 
   return {
     props: {
-      contacts: contacts.data,
+      contacts: contacts.data.attributes,
+      freshNew:news.data[0].attributes,
     },
     revalidate: 1,
   };

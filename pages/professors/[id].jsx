@@ -1,56 +1,57 @@
 import React from 'react';
-import {useRouter} from "next/router";
 import Navbar from "../../components/Navbar/Navbar";
 import styles from "../../styles/oneProfPage.module.css";
 import CustomFooter from "../../components/Footer/CustomFooter";
 import CustomCollapse from "../../components/Collapse/CustomCollapse";
 import {fetchAPI} from "../../lib/api";
+import CustomImage from "../../components/CustomImage/CustomImage";
 
-const OneProfessorPage = ({contacts}) => {
+const OneProfessorPage = ({contacts,profs}) => {
 
-  const router = useRouter()
-  const {id} = router.query
-
-  let one = {
-    date:"17 февраля,1999",
-    name:"Катя",
-    content:"Катя - молодец",
-    achievments:["1","2","3","4"],
-  }
   return (
     <div style={{display:"flex",flexDirection:"column",justifyContent:"flex-start"}}>
       <Navbar />
-      <div className={styles["one-prof-container"]} >
-        <div className={styles["image"]} >
-          {one.date}
-        </div>
-        <div className={styles["info"]} >
-          <div className={styles["name"]} >
-            {one.name}
-          </div>
-          <div className={styles["text"]} >
-            {one.content}
-          </div>
-          <div className={styles["collapse"]} >
+      <main className={styles["one-prof-container"]} >
+        <CustomImage className={styles["image"]} image={profs.picture} />
+        <section className={styles["info"]} >
+          <section className={styles["name"]} >
+            {profs.name}
+          </section>
+          <section className={styles["text"]} >
+            {profs.description}
+          </section>
+          <section className={styles["email"]} >
+            <h4 className={styles["h4"]} >email:</h4>
+            {profs.teachers_eamil}
+          </section>
+          <section className={styles["collapse"]} >
             <hr size="1" color="#E8E8E8"/>
-            <CustomCollapse header="Наиболее значимые публикации" data={one.achievments}/>
+            <CustomCollapse pointedList={true} header="Наиболее значимые публикации" data={profs.publications.split("\n")}/>
             <hr size="1" color="#E8E8E8"/>
-          </div>
-        </div>
-      </div>
+          </section>
+        </section>
+      </main>
       <CustomFooter contacts={contacts} />
     </div>
   );
 };
 
 
-export async function getServerSideProps() {
+export async function getServerSideProps(context) {
   const contacts = await fetchAPI("contact", {
     fields: ["email", "general_number", "dean_number", "address"],
   });
+
+  const profs = await fetchAPI(`prepodavatels/${context.query.id}`, {
+    fields: ["name", "teachers_eamil", "job", "description","publications"],
+    populate:["picture"],
+  });
+  console.log(profs.data.attributes.picture)
+
   return {
     props: {
-      contacts: contacts.data,
+      contacts: contacts.data.attributes,
+      profs:profs.data.attributes
     },
   };
 }

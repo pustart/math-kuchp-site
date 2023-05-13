@@ -7,7 +7,7 @@ import Icon from "@ant-design/icons";
 
 const CustomCollapse = (props) => {
 
-  const {data,header} = props
+  const {data,header,pointedList} = props
 
   const PlusSvg = () => (
     <svg width="30" height="30" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -31,7 +31,13 @@ const CustomCollapse = (props) => {
       expandIcon={({ isActive }) => !isActive ? <PlusIcon /> : <MinusIcon />}
     >
       <Panel className={styles.header} header={header} key="1" >
-        <PointedList data={data} />
+        {pointedList === true
+          ?
+          <PointedList data={data} />
+          :
+          <div className={styles["text"]} >{data}</div>
+        }
+
       </Panel>
     </Collapse>
   );

@@ -12,26 +12,26 @@ const Professors = ({contacts,professors}) => {
   return (
     <div style={{display:"flex",flexDirection:"column",justifyContent:"flex-start"}}>
       <Navbar/>
-      <div className={styles["container"]}>
+      <main className={styles["container"]}>
         <h1>О сотрудниках</h1>
-        <div className={styles["list"]} >
+        <section className={styles["list"]} >
           {professors.map(prof =>
-            <div onClick={() => router.push(`/professors/${encodeURIComponent(prof.id)}`)} className={styles["card"]} >
-                <div  className={styles["card-picture"]} >
+            <section onClick={() => router.push(`/professors/${encodeURIComponent(prof.id)}`)} className={styles["card"]} >
+                <section className={styles["card-picture"]} >
                   Тут будет картинка
-                </div>
+                </section>
                 <div className={styles["card-content"]} >
-                  <div className={styles["card-content-title"]} >
+                  <section className={styles["card-content-title"]} >
                     {prof.attributes.name}
-                  </div>
-                  <div className={styles["card-content-text"]} >
+                  </section>
+                  <section className={styles["card-content-text"]} >
                     {prof.attributes.job}
-                  </div>
+                  </section>
                 </div>
-            </div>
+            </section>
           )}
-        </div>
-      </div>
+        </section>
+      </main>
       <CustomFooter contacts={contacts} />
     </div>
   );
@@ -48,7 +48,7 @@ export async function getStaticProps() {
 
   return {
     props: {
-      contacts: contacts.data,
+      contacts: contacts.data.attributes,
       professors:profs.data,
     },
     revalidate: 1,

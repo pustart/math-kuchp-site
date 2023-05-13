@@ -17,3 +17,25 @@
 .dropdown {
   width: 100%;
 }
+
+@media (max-width: 600px) {
+  .container {
+    width: 90%;
+    margin-left: 5%;
+  }
+
+  .qa-block {
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    justify-content: flex-start;
+
+    width: 100%;
+    min-height: 50vh;
+    margin-bottom: 2%;
+  }
+
+  .dropdown {
+    width: 100%;
+  }
+}

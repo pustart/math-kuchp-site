@@ -7,9 +7,11 @@
 .about-block {
   display: flex;
   flex-direction: row;
-  justify-content: space-evenly;
+  justify-content: space-around;
 
+  width: 75%;
   margin-top: 2%;
+  margin-left: 9%;
 }
 
 .about-block-text {
@@ -19,6 +21,7 @@
 
 .about-block-chart {
   width: 30%;
+  margin-left: 15%;
 }
 
 .main-info {
@@ -27,6 +30,7 @@
   flex-direction: column;
   justify-content: flex-start;
 
+  width: 75%;
   margin-top: 5%;
   margin-bottom: 5%;
   margin-left: 12%;
@@ -49,7 +53,7 @@
   grid-area: news;
 }
 
-.QA {
+.qa {
   grid-area: qa;
 }
 
@@ -89,6 +93,14 @@
   cursor: pointer;
 
   background-color: #348376;
+}
+
+.news-button {
+  display: none;
+}
+
+.news-button:hover {
+  display: none;
 }
 
 .methodics {
@@ -171,6 +183,19 @@
   line-height: 100%;
 }
 
+.card-news-title {
+  align-self: flex-start;
+
+  margin-top: 20%;
+  margin-bottom: 0;
+
+  color: #FFF;
+
+  font-family: Inter, serif;
+  font-size: 28px;
+  line-height: 100%;
+}
+
 .card-small-text {
   color: #FFF;
 
@@ -178,7 +203,242 @@
 }
 
 .card-big-text {
+  margin-top: 15%;
+  margin-bottom: 2%;
+
   color: #FFF;
 
-  font-size: 20px;
+  font-size: 24px;
+}
+
+@media (max-width: 600px) {
+  .container {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+
+  .news-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 100%;
+    height: 50px;
+    margin-top: 2%;
+
+    text-align: center;
+
+    color: rgb(0 0 0 / 80%);
+    border: 1px solid rgb(0 0 0 / 80%);
+
+    border-radius: 20px;
+
+    background-color: #FFF;
+
+    font-family: Inter, serif;
+    font-size: 16px;
+    font-weight: 400;
+    font-style: normal;
+  }
+
+  .news-button:hover {
+    display: flex;
+
+    cursor: pointer;
+
+    background: rgb(68 187 168 / 53%);
+  }
+
+  .extra-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 100%;
+    height: 50px;
+    margin-top: 2%;
+
+    text-align: center;
+
+    color: #FFF;
+    border-style: none;
+
+    border-radius: 20px;
+
+    background-color: #44BBA8;
+
+    font-family: Inter, serif;
+    font-size: 16px;
+    font-weight: 400;
+    font-style: normal;
+  }
+
+  .extra-button:hover {
+    cursor: pointer;
+
+    background-color: #348376;
+  }
+
+  .about-block {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+
+    width: 80%;
+    margin-top: 2%;
+    margin-left: 0;
+  }
+
+  .about-block-text {
+    width: 100%;
+  }
+
+  .about-block-chart {
+    width: 100%;
+    margin-right: 120%;
+    margin-left: 5%;
+  }
+
+  .cards {
+    display: grid;
+
+    grid-template:
+      "news news"
+      "qa  methodics"
+      "about about";
+    grid-template-rows: repeat(3, 250px);
+    grid-gap: 5px 10px;
+    grid-template-columns: repeat(2, 49%);
+
+    margin-bottom: 5%;
+  }
+
+  .news {
+    grid-area: news;
+  }
+
+  .qa {
+    grid-area: qa;
+  }
+
+  .about {
+    grid-area: about;
+  }
+
+  .main-info {
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    justify-content: flex-start;
+
+    width: 90%;
+    margin-top: 5%;
+    margin-bottom: 5%;
+    margin-left: 0;
+  }
+
+  .news-card {
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    justify-content: flex-start;
+
+    width: 100%;
+    height: 100%;
+
+    border-radius: 30px;
+
+    background-color: #F8A4A4;
+  }
+
+  .qa-card {
+    display: flex;
+    align-items: flex-start;
+    flex-direction: row;
+    justify-content: center;
+
+    width: 100%;
+    height: 100%;
+
+    border-radius: 30px;
+
+    background-color: #F3E7BC;
+  }
+
+  .qa-image {
+    align-self: flex-end;
+
+    height: 80%;
+    margin-left: 15%;
+  }
+
+  .about-card {
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    justify-content: flex-end;
+
+    width: 100%;
+    height: 100%;
+
+    border-radius: 30px;
+
+    background: linear-gradient(89.05deg, #BEEEC3 12.31%, #44BBA8 100%, rgb(68 187 168 / 0%) 100%);
+  }
+
+  .methodics-card {
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    justify-content: flex-end;
+
+    width: 100%;
+    height: 100%;
+
+    border-radius: 30px;
+
+    background-color: #BED9EE;
+  }
+
+  .card-title {
+    align-self: flex-end;
+
+    vertical-align: top;
+    letter-spacing: 0.02em;
+
+    color: #FFF;
+
+    font-family: Inter, serif;
+    font-size: 28px;
+    line-height: 100%;
+  }
+
+  .card-news-title {
+    align-self: flex-start;
+
+    margin-top: 15%;
+    margin-bottom: 0;
+
+    color: #FFF;
+
+    font-family: Inter, serif;
+    font-size: 28px;
+    line-height: 100%;
+  }
+
+  .card-small-text {
+    color: #FFF;
+
+    font-size: 14px;
+  }
+
+  .card-big-text {
+    margin-top: 0;
+
+    color: #FFF;
+
+    font-size: 20px;
+  }
 }

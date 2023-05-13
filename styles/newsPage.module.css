@@ -9,8 +9,7 @@
 
 .news-block {
   display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
+  flex-flow: row wrap;
   justify-content: flex-start;
 
   margin-top: 4%;
@@ -22,7 +21,7 @@
   flex-direction: column;
   justify-content: flex-start;
 
-  width: 26%;
+  width: 28%;
   height: 250px;
 }
 
@@ -56,4 +55,66 @@
   color: #80858A;
 
   font-size: 14px;
+}
+
+@media (max-width: 600px) {
+  .container {
+    display: flex;
+    flex-direction: column;
+
+    width: 90%;
+    margin-bottom: 2%;
+    margin-left: 5%;
+  }
+
+  .news-block {
+    display: flex;
+    align-items: center;
+    flex-flow: column;
+    justify-content: flex-start;
+
+    margin-top: 4%;
+  }
+
+  .new-container {
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    justify-content: flex-start;
+
+    width: 100%;
+    height: 250px;
+  }
+
+  .new-container-right-aligned {
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    justify-content: flex-start;
+
+    width: 100%;
+    height: 270px;
+    margin-left: 0;
+  }
+
+  .title {
+    font-size: 24px;
+    font-weight: 400;
+  }
+
+  .title:hover {
+    color: #44BBA8;
+
+    font-size: 24px;
+    font-weight: 400;
+    text-decoration-line: underline;
+  }
+
+  .date {
+    margin-top: 2%;
+
+    color: rgb(128 133 138 / 80%);
+
+    font-size: 14px;
+  }
 }

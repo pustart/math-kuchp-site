@@ -17,17 +17,17 @@ function CustomFooter({ contacts }) {
       <div className={styles["footer-info"]}>
         <Typography>
           <Paragraph className={styles["footer-alter-text"]}>Адрес</Paragraph>
-          <Paragraph className={styles["footer-alter-text"]}>{contacts.attributes.address}</Paragraph>
+          <Paragraph className={styles["footer-alter-text"]}>{contacts.address}</Paragraph>
           <Paragraph className={styles["footer-alter-text"]}>Телефон</Paragraph>
           <Paragraph className={styles["footer-alter-text"]}>
-            {contacts.attributes.general_number}
+            {contacts.general_number}
           </Paragraph>
         </Typography>
         <Typography>
           <Paragraph className={styles["footer-text"]}>Деканат</Paragraph>
-          <Paragraph className={styles["footer-text"]}>{contacts.attributes.dean_number}</Paragraph>
+          <Paragraph className={styles["footer-text"]}>{contacts.dean_number}</Paragraph>
           <Paragraph className={styles["footer-text"]}>Почта</Paragraph>
-          <Paragraph className={styles["footer-text"]}>{contacts.attributes.email}</Paragraph>
+          <Paragraph className={styles["footer-text"]}>{contacts.email}</Paragraph>
         </Typography>
       </div>
       <hr className={styles["footer-line"]} />

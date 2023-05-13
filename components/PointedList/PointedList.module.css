@@ -1,4 +1,13 @@
 .text {
-  font-size: 14px;
-  font-weight: normal;
+  font-size: 16px;
+  font-weight: 400;
+  font-style: normal;
+}
+
+@media (max-width: 600px) {
+  .text {
+    font-size: 16px;
+    font-weight: 400;
+    font-style: normal;
+  }
 }

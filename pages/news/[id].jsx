@@ -4,42 +4,45 @@ import Navbar from "../../components/Navbar/Navbar";
 import CustomFooter from "../../components/Footer/CustomFooter";
 import styles from "../../styles/oneNewPage.module.css"
 import {fetchAPI} from "../../lib/api";
+import Moment from "react-moment";
+import 'moment/locale/ru';
 
-const OneNew = ({contacts}) => {
-  const router = useRouter()
-  const {id} = router.query
+const OneNew = ({contacts,oneNew}) => {
 
-  let one = {
-    date:"17 февраля,1999",
-    title:"Заголовок",
-    content:"Новость о чём то там о чём угодно"
-  }
   return (
     <div style={{display:"flex",flexDirection:"column",justifyContent:"flex-start"}}>
-      <Navbar />
-        <div className={styles["one-new-container"]} >
-          <div className={styles["date"]} >
-            {one.date}
-          </div>
-          <div className={styles["title"]} >
-            {one.title}
-          </div>
-          <div className={styles["content"]} >
-            {one.content}
-          </div>
-        </div>
-      <CustomFooter contacts={contacts} />
+        <Navbar />
+        <main className={styles["one-new-container"]} >
+          <section className={styles["date"]} >
+            <Moment locale="ru" format="ll">
+              {oneNew.publish_date}
+            </Moment>
+          </section>
+          <h1 className={styles["title"]} >
+            {oneNew.title}
+          </h1>
+          <section className={styles["content"]} >
+            {oneNew.body}
+          </section>
+        </main>
+        <CustomFooter contacts={contacts} />
     </div>
   );
 };
 
-export async function getServerSideProps() {
+export async function getServerSideProps(context) {
+
+  const oneNew = await fetchAPI(`novosti/${context.query.id}`, {
+    fields: ["title", "publish_date", "body"],
+  });
   const contacts = await fetchAPI("contact", {
     fields: ["email", "general_number", "dean_number", "address"],
   });
+
   return {
     props: {
-      contacts: contacts.data,
+      contacts: contacts.data.attributes,
+      oneNew: oneNew.data.attributes,
     },
   };
 }
