@@ -2,7 +2,6 @@ import { useEffect, useMemo, useState } from "react";
 import determineDisplaySize from "./determineDisplaySize";
 
 const useResponsive = () => {
-  if (typeof window !== 'undefined') {
     const [ currentDisplaySize, setCurrentDisplaySize ] = useState(determineDisplaySize(window.innerWidth));
 
     useEffect(() => {
@@ -12,8 +11,6 @@ const useResponsive = () => {
     }, []);
 
     return useMemo(() => currentDisplaySize, [currentDisplaySize]);
-  }
-
 }
 
 export default useResponsive;

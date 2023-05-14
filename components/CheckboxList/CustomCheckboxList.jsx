@@ -22,8 +22,15 @@ const CustomCheckboxList = (props) => {
           alignItems:"flex-start",
         }}
         onChange={() => onChange}
-        options={options}
-      />
+
+      >
+        {options.map((option,index) =>
+          index === 0 ?
+          <Checkbox style={{marginLeft:8}} >{option}</Checkbox>
+            :
+          <Checkbox  >{option}</Checkbox>
+        )}
+      </Checkbox.Group>
     </div>
   )
 };

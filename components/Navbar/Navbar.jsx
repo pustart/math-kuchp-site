@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import {Layout, Menu } from "antd";
+import {ConfigProvider, Layout, Menu} from "antd";
 import Image from "next/image";
 import styles from "./Navbar.module.css";
 import pic from "../../public/logo.png";
@@ -61,6 +61,13 @@ function Navbar() {
         </div>
 
         <div className={styles.menu}>
+          <ConfigProvider
+            theme={{
+              token: {
+                colorPrimary: '#44BBA8',
+              },
+            }}
+          >
           <Menu
             className={styles.navbar}
             style={{ border: "none", width: 500, marginTop: 35 }}
@@ -70,6 +77,7 @@ function Navbar() {
             mode="horizontal"
             items={items}
           />
+          </ConfigProvider>
         </div>
       </div>
     </Layout>

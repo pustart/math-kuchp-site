@@ -1,14 +1,13 @@
 import React, {useEffect} from "react";
 import Navbar from "../components/Navbar/Navbar";
 import CustomFooter from "../components/Footer/CustomFooter";
-import {Typography, Card} from "antd";
+import {Card} from "antd";
 import styles from "../styles/aboutPage.module.css"
 import CustomCollapse from "../components/Collapse/CustomCollapse";
 import PointedList from "../components/PointedList/PointedList";
 import { fetchAPI } from "../lib/api";
 import Image from "next/image";
 const { Meta } = Card;
-const { Title, Paragraph } = Typography;
 import cardPic from "../public/graduate's hat and books.svg"
 import number1 from "../public/Number1BlackCircle.svg"
 import number2 from "../public/Number2BlackCircle.svg"
@@ -17,24 +16,18 @@ import ReactMarkdown from "react-markdown";
 import useResponsive from "../utils/useResponsive";
 import DisplaySize from "../utils/DeviceWidth";
 
+
 function About({ contacts,about,mathCourses,otherCourses,bacCourses,masterCourses,specCourses}) {
 
-
-
-  const displaySize = useResponsive();
+  // const displaySize = useResponsive();
+  // console.log(displaySize)
 
   return (
     <div style={{display:"flex",flexDirection:"column",justifyContent:"flex-start"}}>
       <Navbar />
       <main className={styles.container}>
         <figure className={styles.picture}>
-          {displaySize > DisplaySize.mobile
-            ?
             <Image src="https://math.vsu.ru/wp/wp-content/themes/nevermind/img/hhh.jpg" width={1200} height={500} alt="main"/>
-            :
-            <Image src="https://math.vsu.ru/wp/wp-content/themes/nevermind/img/hhh.jpg" width={550} height={300} alt="main"/>
-          }
-
         </figure>
         <section className={styles["about-block"]}>
           <div className={styles["about-block-text"]}>
