@@ -1,22 +1,24 @@
-import { Card, Typography } from "antd";
+import { Card } from "antd";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
+import Moment from "react-moment";
+import React from "react";
 import Navbar from "../components/Navbar/Navbar";
 import styles from "../styles/mainPage.module.css";
 import pieChart from "../public/pieChart.png";
 import boyAndGirl from "../public/boyandgirl.png";
 import CustomFooter from "../components/Footer/CustomFooter";
 import { fetchAPI } from "../lib/api";
-import 'moment/locale/ru';
-import Moment from "react-moment";
-import React from "react";
+import "moment/locale/ru";
+import useResponsive from "../utils/useResponsive";
 
-
-export default function Home({ contacts,freshNew }) {
+export default function Home({ contacts, freshNew }) {
   const router = useRouter();
 
+  const windowSize = useResponsive();
+
   return (
-    <div style={{display:"flex",flexDirection:"column",justifyContent:"flex-start"}}>
+    <div style={{ display: "flex", flexDirection: "column", justifyContent: "flex-start" }}>
       <Navbar />
       <main className={styles.container}>
         <section className={styles["about-block"]}>
@@ -28,15 +30,20 @@ export default function Home({ contacts,freshNew }) {
                 профессор Селим Григорьевич Крейн.
               </p>
             </section>
-            <button onClick={() => router.push("/about")} className={styles["extra-button"]} >
-                Узнать подробнее
+            <button onClick={() => router.push("/about")} className={styles["extra-button"]}>
+              Узнать подробнее
             </button>
-            <button onClick={() => router.push("/news")} className={styles["news-button"]} >
+            <button onClick={() => router.push("/news")} className={styles["news-button"]}>
               Новости о кафедре
             </button>
           </div>
           <figure className={styles["about-block-chart"]}>
-            <Image src={pieChart} height={400} width={400} alt="Декоративная картинка." />
+            {windowSize.width > 1400
+              ?
+                <Image src={pieChart} height={400} width={400} alt="Декоративная картинка." />
+              :
+                <Image src={pieChart} height={300} width={300} alt="Декоративная картинка." />
+            }
           </figure>
         </section>
 
@@ -52,13 +59,11 @@ export default function Home({ contacts,freshNew }) {
                   width: "100%",
                   height: "87%",
                   display: "flex",
-                  flexDirection:"column"
+                  flexDirection: "column",
                 }}
               >
-                <section className={styles["card-big-text"]} >
-                  {freshNew.title}
-                </section>
-                <section className={styles["card-small-text"]} >
+                <section className={styles["card-big-text"]}>{freshNew.title}</section>
+                <section className={styles["card-small-text"]}>
                   <Moment locale="ru" format="ll">
                     {freshNew.publish_date}
                   </Moment>
@@ -105,8 +110,8 @@ export default function Home({ contacts,freshNew }) {
             </section>
           </main>
         </section>
-        <CustomFooter contacts={contacts} />
       </main>
+      <CustomFooter contacts={contacts} />
     </div>
   );
 }
@@ -117,14 +122,13 @@ export async function getStaticProps() {
   });
   const news = await fetchAPI("novosti", {
     fields: ["title", "publish_date", "body"],
-    sort: ['publish_date:desc'],
+    sort: ["publish_date:desc"],
   });
-  console.log(news.data[0])
 
   return {
     props: {
       contacts: contacts.data.attributes,
-      freshNew:news.data[0].attributes,
+      freshNew: news.data[0].attributes,
     },
     revalidate: 1,
   };

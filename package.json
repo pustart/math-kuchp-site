@@ -24,10 +24,12 @@
   "dependencies": {
     "@ant-design/icons": "^5.0.1",
     "antd": "^5.4.6",
+    "materialize-css": "^1.0.0-rc.2",
     "moment": "^2.29.4",
     "next": "13.3.0",
     "qs": "^6.11.1",
     "react": "18.2.0",
+    "react-burger-menu": "^3.0.9",
     "react-dom": "18.2.0",
     "react-markdown": "^8.0.6",
     "react-moment": "^1.1.3"

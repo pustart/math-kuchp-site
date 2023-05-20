@@ -2,26 +2,27 @@ import React from "react";
 import { Typography, Layout } from "antd";
 import Image from "next/image";
 import styles from "./footer.module.css";
-import logo from "../../public/Vgu_logo_svg.svg";
-import voronezh from "../../public/Group 87.svg";
-import state from "../../public/Group 89.svg";
-import university from "../../public/Group 88.svg";
 import vk from "../../public/VK.svg";
+
+import vgu from "../../public/Group 91.svg";
+import vguSmall from "../../public/VGU.svg";
+import useResponsive from "../../utils/useResponsive";
 
 const { Paragraph } = Typography;
 const { Footer } = Layout;
 
 function CustomFooter({ contacts }) {
+
+  const windowSize = useResponsive();
+
   return (
     <Footer className={styles.footer}>
-      <div className={styles["footer-info"]}>
+      <section className={styles["footer-info"]}>
         <Typography>
           <Paragraph className={styles["footer-alter-text"]}>Адрес</Paragraph>
           <Paragraph className={styles["footer-alter-text"]}>{contacts.address}</Paragraph>
           <Paragraph className={styles["footer-alter-text"]}>Телефон</Paragraph>
-          <Paragraph className={styles["footer-alter-text"]}>
-            {contacts.general_number}
-          </Paragraph>
+          <Paragraph className={styles["footer-alter-text"]}>{contacts.general_number}</Paragraph>
         </Typography>
         <Typography>
           <Paragraph className={styles["footer-text"]}>Деканат</Paragraph>
@@ -29,30 +30,32 @@ function CustomFooter({ contacts }) {
           <Paragraph className={styles["footer-text"]}>Почта</Paragraph>
           <Paragraph className={styles["footer-text"]}>{contacts.email}</Paragraph>
         </Typography>
-      </div>
+      </section>
       <hr className={styles["footer-line"]} />
-      <div className={styles["footer-emblem-block"]}>
-        <div>
+      <section className={styles["footer-emblem-block"]}>
+        <section>
           <div>
             <a href="http://www.vsu.ru/" target="_blank" className={styles["footer-link"]}>
-              <Image src={logo} alt="Логотип ВГУ." />
               <div className={styles["footer-link-university"]}>
-                <Image src={voronezh} alt="Воронежский" />
-                <Image src={state} alt="Государственный" />
-                <Image src={university} alt="Университет" />
+                {windowSize.width > 600 ?
+                    <Image src={vgu} className={styles["logo-svg"]} alt="Логотип вгу" />
+                  :
+                    <Image src={vguSmall} className={styles["logo-svg"]} alt="Логотип вгу" />
+                }
+
               </div>
             </a>
           </div>
-        </div>
-        <div className={styles.socials}>
+        </section>
+        <section className={styles.socials}>
           <Typography>
-            <Paragraph className={styles["footer-text"]}>Социальные сети</Paragraph>
-            <a href="https://vk.com/math_vsu">
+            <Paragraph className={styles["footer-text-socials"]}>Социальные сети</Paragraph>
+            <a target="_blank" href="https://vk.com/math_vsu">
               <Image src={vk} alt="Группа во ВКонатке." />
             </a>
           </Typography>
-        </div>
-      </div>
+        </section>
+      </section>
     </Footer>
   );
 }

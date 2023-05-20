@@ -1,38 +1,44 @@
-import React from 'react';
-import {Checkbox} from 'antd';
+import React, {useState} from "react";
+import {ConfigProvider, Radio} from "antd";
 
-const CustomCheckboxList = (props) => {
-
-  const onChange = (checkedValues) => {
-    //props.onChange();
-    //console.log('checked = ', checkedValues);
+function CustomCheckboxList(props) {
+  const onChange = (e) => {
+    setValue(e.target.value);
+    props.setListValue(e.target.value)
   };
 
-  let options = ["1","2","3"]
+  const [value, setValue] = useState(props.data[0]);
+
+  const options = props.data;
+
 
   return (
-
     <div>
       <h3>{props.title}</h3>
-      <Checkbox.Group
-        style={{
-          width: '100%',
-          display:"flex",
-          flexDirection:"column",
-          alignItems:"flex-start",
+      <ConfigProvider
+        theme={{
+          token: {
+            colorPrimary: "#44BBA8",
+          },
         }}
-        onChange={() => onChange}
-
       >
-        {options.map((option,index) =>
-          index === 0 ?
-          <Checkbox style={{marginLeft:8}} >{option}</Checkbox>
-            :
-          <Checkbox  >{option}</Checkbox>
-        )}
-      </Checkbox.Group>
+        <Radio.Group
+          value={value}
+          style={{
+            width: "100%",
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "flex-start",
+          }}
+          onChange={onChange}
+        >
+          {options.map((option, index) =>
+            <Radio value={option} >{option}</Radio>
+          )}
+        </Radio.Group>
+      </ConfigProvider>
     </div>
-  )
-};
+  );
+}
 
 export default CustomCheckboxList;

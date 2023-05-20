@@ -3,6 +3,7 @@
   flex-direction: column;
 
   width: 75%;
+  min-height: 48vh;
   margin-bottom: 4%;
   margin-left: 12%;
 }
@@ -57,12 +58,17 @@
   font-size: 14px;
 }
 
+.no-data {
+  margin-top: 10%;
+}
+
 @media (max-width: 600px) {
   .container {
     display: flex;
     flex-direction: column;
 
     width: 90%;
+    min-height: 60vh;
     margin-bottom: 2%;
     margin-left: 5%;
   }

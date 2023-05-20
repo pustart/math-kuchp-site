@@ -3,7 +3,7 @@ const nextConfig = {
   reactStrictMode: true,
   images: {
     loader: "default",
-    domains: ["localhost","math.vsu.ru"],
+    domains: ["localhost", "math.vsu.ru"],
   },
 };
 

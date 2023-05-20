@@ -1,17 +1,18 @@
-import {getStrapiMedia}  from "../../lib/media";
 import NextImage from "next/image";
+import { getStrapiMedia } from "../../lib/media";
 
-const CustomImage = ({ image }) => {
-  const { alternativeText, width, height } = image.data.attributes;
+function CustomImage(props) {
+
+  const { alternativeText, width, height } = props.image.data.attributes;
 
   return (
     <NextImage
-      width={width}
-      height={height}
-      src={getStrapiMedia(image)}
+      width={props.width ? props.width : width}
+      height={props.height ? props.height : height}
+      src={getStrapiMedia(props.image)}
       alt={alternativeText || ""}
     />
   );
-};
+}
 
 export default CustomImage;

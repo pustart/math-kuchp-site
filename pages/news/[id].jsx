@@ -1,37 +1,30 @@
-import React from 'react';
-import {useRouter} from "next/router";
+import React from "react";
+import Moment from "react-moment";
 import Navbar from "../../components/Navbar/Navbar";
 import CustomFooter from "../../components/Footer/CustomFooter";
-import styles from "../../styles/oneNewPage.module.css"
-import {fetchAPI} from "../../lib/api";
-import Moment from "react-moment";
-import 'moment/locale/ru';
+import styles from "../../styles/oneNewPage.module.css";
+import { fetchAPI } from "../../lib/api";
+import "moment/locale/ru";
 
-const OneNew = ({contacts,oneNew}) => {
-
+function OneNew({ contacts, oneNew }) {
   return (
-    <div style={{display:"flex",flexDirection:"column",justifyContent:"flex-start"}}>
-        <Navbar />
-        <main className={styles["one-new-container"]} >
-          <section className={styles["date"]} >
-            <Moment locale="ru" format="ll">
-              {oneNew.publish_date}
-            </Moment>
-          </section>
-          <h1 className={styles["title"]} >
-            {oneNew.title}
-          </h1>
-          <section className={styles["content"]} >
-            {oneNew.body}
-          </section>
-        </main>
-        <CustomFooter contacts={contacts} />
+    <div style={{ display: "flex", flexDirection: "column", justifyContent: "flex-start" }}>
+      <Navbar />
+      <main className={styles["one-new-container"]}>
+        <section className={styles.date}>
+          <Moment locale="ru" format="ll">
+            {oneNew.publish_date}
+          </Moment>
+        </section>
+        <h1 className={styles.title}>{oneNew.title}</h1>
+        <section className={styles.content}>{oneNew.body}</section>
+      </main>
+      <CustomFooter contacts={contacts} />
     </div>
   );
-};
+}
 
 export async function getServerSideProps(context) {
-
   const oneNew = await fetchAPI(`novosti/${context.query.id}`, {
     fields: ["title", "publish_date", "body"],
   });
@@ -46,6 +39,5 @@ export async function getServerSideProps(context) {
     },
   };
 }
-
 
 export default OneNew;

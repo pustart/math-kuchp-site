@@ -1,5 +1,6 @@
 .container {
   width: 75%;
+  min-height: 60vh;
   margin-left: 12%;
 }
 
@@ -12,6 +13,10 @@
   width: 100%;
   min-height: 50vh;
   margin-bottom: 2%;
+}
+
+.no-data {
+  margin-top: 10%;
 }
 
 .dropdown {
@@ -33,6 +38,10 @@
     width: 100%;
     min-height: 50vh;
     margin-bottom: 2%;
+  }
+
+  .no-data {
+    margin-top: 50%;
   }
 
   .dropdown {

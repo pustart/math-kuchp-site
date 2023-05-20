@@ -10,7 +10,11 @@
 
 .image {
   width: 100%;
-  height: 400px;
+  margin-left: -0.1%;
+}
+
+.no-data {
+  margin-top: 10%;
 }
 
 .block {
@@ -58,7 +62,7 @@
 
   .image {
     width: 100%;
-    height: 400px;
+    margin-left: -1%;
   }
 
   .block {
@@ -66,7 +70,7 @@
     flex-direction: column;
 
     height: 100%;
-    margin-top: 10%;
+    margin-top: 0;
     margin-bottom: 5%;
   }
 
@@ -74,8 +78,66 @@
     margin-top: 5%;
   }
 
+  .no-data {
+    margin-top: 20%;
+  }
+
   .list {
     margin-top: 0;
+  }
+
+  .list-item {
+    margin-top: 1%;
+
+    font-family: Inter, serif;
+    font-weight: 400;
+  }
+}
+
+@media (max-width: 1400px) and (min-width: 800px) {
+  .container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+
+    width: 75%;
+    min-height: 200vh;
+    margin-left: 12%;
+  }
+
+  .image {
+    width: 100%;
+    margin-left: -0.1%;
+  }
+
+  .no-data {
+    margin-top: 10%;
+  }
+
+  .block {
+    display: grid;
+
+    width: 85%;
+    height: 100%;
+    margin-top: 10%;
+    margin-bottom: 5%;
+
+    grid-template:
+      "dropdown man man man"
+      "dropdown man man man"
+      "dropdown man man man"
+      "dropdown man man man";
+    grid-template-rows: 20% 30% 25% 25%;
+    grid-gap: 50px;
+    grid-template-columns: 20% 40% 20% 20%;
+  }
+
+  .dropdown {
+    grid-area: dropdown;
+  }
+
+  .list {
+    grid-area: man;
   }
 
   .list-item {

@@ -1,16 +1,27 @@
-import { useEffect, useMemo, useState } from "react";
-import determineDisplaySize from "./determineDisplaySize";
+import { useEffect, useState } from "react";
 
 const useResponsive = () => {
-    const [ currentDisplaySize, setCurrentDisplaySize ] = useState(determineDisplaySize(window.innerWidth));
+  const [windowSize, setWindowSize] = useState({
+    width: undefined,
+    height: undefined,
+  });
 
-    useEffect(() => {
-      const handler = () => setCurrentDisplaySize(determineDisplaySize(window.innerWidth));
-      window.addEventListener("resize", handler);
-      return () => window.removeEventListener("resize", handler);
-    }, []);
+  useEffect(() => {
+    function handleResize() {
+      // Set window width/height to state
+      setWindowSize({
+        width: window.innerWidth,
+        height: window.innerHeight,
+      });
+    }
 
-    return useMemo(() => currentDisplaySize, [currentDisplaySize]);
-}
+    window.addEventListener("resize", handleResize);
+
+    handleResize();
+
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+  return windowSize;
+};
 
 export default useResponsive;
