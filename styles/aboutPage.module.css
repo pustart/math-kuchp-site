@@ -115,6 +115,10 @@
   background: #BEEEC3;
 }
 
+.card-number {
+  margin-left: -1%;
+}
+
 .special-courses-master-card {
   display: flex;
   align-items: center;
@@ -317,5 +321,9 @@
     font-family: Inter, serif;
     font-size: 28px;
     font-weight: 700;
+  }
+
+  .card-number {
+    margin-left: -1%;
   }
 }

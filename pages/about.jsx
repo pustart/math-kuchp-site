@@ -79,9 +79,9 @@ function About({contacts, about, mathCourses, otherCourses, bacCourses, masterCo
         </section>
         <section className={styles["history-block"]}>
           <h1>История кафедры</h1>
-          <mark className={styles["history-block-text"]}>
+          <div className={styles["history-block-text"]}>
             <ReactMarkdown children={about.history} />
-          </mark>
+          </div>
         </section>
         <section className={styles.courses}>
           <h1>Курсы, которые читаются на кафедре</h1>
@@ -97,7 +97,7 @@ function About({contacts, about, mathCourses, otherCourses, bacCourses, masterCo
         <section className={styles["special-courses"]}>
           <div className={styles["special-courses-bac"]}>
             <Card className={styles["special-courses-bac-card"]}>
-              <figure>
+              <figure className={styles["card-number"]} >
                 <Image src={number1} width={40} height={40} alt="Номер один." />
               </figure>
               <div className={styles["card-title"]}>{bacCourses.for_bachelor}</div>
@@ -170,7 +170,6 @@ export async function getStaticProps() {
   const specCourses = await fetchAPI("speczkursy-dlya-speczialistov", {
     fields: ["courses", "for_specialists"],
   });
-
   return {
     props: {
       contacts: contacts.data.attributes,

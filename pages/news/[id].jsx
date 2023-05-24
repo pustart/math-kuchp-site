@@ -5,6 +5,7 @@ import CustomFooter from "../../components/Footer/CustomFooter";
 import styles from "../../styles/oneNewPage.module.css";
 import { fetchAPI } from "../../lib/api";
 import "moment/locale/ru";
+import ReactMarkdown from "react-markdown";
 
 function OneNew({ contacts, oneNew }) {
   return (
@@ -17,7 +18,7 @@ function OneNew({ contacts, oneNew }) {
           </Moment>
         </section>
         <h1 className={styles.title}>{oneNew.title}</h1>
-        <section className={styles.content}>{oneNew.body}</section>
+        <ReactMarkdown className={styles.content} children= {oneNew.body} />
       </main>
       <CustomFooter contacts={contacts} />
     </div>

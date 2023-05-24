@@ -7,13 +7,13 @@ import { fetchAPI } from "../../lib/api";
 import CustomImage from "../../components/CustomImage/CustomImage";
 import useResponsive from "../../utils/useResponsive";
 import {calcWidth} from "../../utils/calcWidth";
+import ReactMarkdown from "react-markdown";
 
 function OneProfessorPage({ contacts, profs }) {
 
   const windowSize = useResponsive();
 
   let width = calcWidth(windowSize.width,0.9)
-
 
   return (
     <div style={{ display: "flex", flexDirection: "column", justifyContent: "flex-start" }}>
@@ -28,10 +28,12 @@ function OneProfessorPage({ contacts, profs }) {
 
         <section className={styles.info}>
           <section className={styles.name}>{profs.name}</section>
-          <section className={styles.text}>{profs.description}</section>
+          <ReactMarkdown className={styles.text} children={profs.description}  />
           <section className={styles.email}>
             <h4 className={styles.h4}>email:</h4>
-            {profs.teachers_eamil}
+            <div style={{marginLeft:"5%"}} >
+              {profs.teachers_email}
+            </div>
           </section>
           <section className={styles.collapse}>
             <hr size="1" color="#E8E8E8" />
@@ -55,7 +57,7 @@ export async function getServerSideProps(context) {
   });
 
   const profs = await fetchAPI(`prepodavatels/${context.query.id}`, {
-    fields: ["name", "teachers_eamil", "job", "description", "publications"],
+    fields: ["name", "teachers_email", "job", "description", "publications"],
     populate: ["picture"],
   });
 
