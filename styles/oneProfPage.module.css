@@ -47,6 +47,24 @@
   font-weight: 400;
 }
 
+.text a {
+  text-decoration: none;
+
+  color: var(--accent-strong);
+}
+
+.text a:hover {
+  text-decoration: underline;
+
+  color: var(--accent-strong);
+}
+
+.text a:visited {
+  text-decoration: none;
+
+  color: var(--accent-strong-up);
+}
+
 .email {
   display: flex;
   flex-direction: row;
@@ -110,6 +128,24 @@
     font-family: Inter, serif;
     font-size: 20px;
     font-weight: 400;
+  }
+
+  .text a {
+    text-decoration: none;
+
+    color: var(--accent-strong);
+  }
+
+  .text a:hover {
+    text-decoration: underline;
+
+    color: var(--accent-strong);
+  }
+
+  .text a:visited {
+    text-decoration: none;
+
+    color: var(--accent-strong-up);
   }
 
   .email {

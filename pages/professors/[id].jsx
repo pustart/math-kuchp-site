@@ -8,24 +8,31 @@ import CustomImage from "../../components/CustomImage/CustomImage";
 import useResponsive from "../../utils/useResponsive";
 import {calcWidth} from "../../utils/calcWidth";
 import ReactMarkdown from "react-markdown";
+import placeholder from "../../public/placeholder.png"
+import NextImage from "next/image";
 
 function OneProfessorPage({ contacts, profs }) {
 
   const windowSize = useResponsive();
 
-  let width = calcWidth(windowSize.width,0.9)
+  let bigWidth = calcWidth(windowSize.width,0.5)
+  let smallWidth = calcWidth(windowSize.width,0.9)
+  let height = windowSize.width > 600 ?  (bigWidth * 5/6) : (smallWidth *  6/5);
 
   return (
     <div style={{ display: "flex", flexDirection: "column", justifyContent: "flex-start" }}>
       <Navbar />
       <main className={styles["one-prof-container"]}>
-        {windowSize.width > 600
+        {profs.picture.data === null
           ?
-            <CustomImage className={styles.image} image={profs.picture} />
+            <NextImage style={{borderRadius: "5%"}} width={bigWidth} height={height} src={placeholder} alt="placeholder" />
           :
-            <CustomImage width={width} className={styles.image} image={profs.picture} />
+            windowSize.width > 600
+              ?
+                <CustomImage style={{borderRadius: "5%"}} width={bigWidth} height={height} className={styles.image} image={profs.picture} />
+              :
+                <CustomImage style={{borderRadius: "5%"}} width={smallWidth} height={height} className={styles.image} image={profs.picture} />
         }
-
         <section className={styles.info}>
           <section className={styles.name}>{profs.name}</section>
           <ReactMarkdown className={styles.text} children={profs.description}  />

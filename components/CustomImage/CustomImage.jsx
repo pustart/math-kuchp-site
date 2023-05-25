@@ -5,10 +5,12 @@ function CustomImage(props) {
 
   const { alternativeText, width, height } = props.image.data.attributes;
 
+
   return (
     <NextImage
-      width={props.width ? props.width : width}
-      height={props.height ? props.height : height}
+      style={props.style}
+      width={props.width !== undefined ? props.width : width}
+      height={props.height !== undefined ? props.height : height}
       src={getStrapiMedia(props.image)}
       alt={alternativeText || ""}
     />

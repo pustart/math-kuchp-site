@@ -6,9 +6,23 @@ import styles from "../styles/professorsPage.module.css";
 import { fetchAPI } from "../lib/api";
 import NoData from "../components/NoData/NoData";
 import CustomImage from "../components/CustomImage/CustomImage";
+import placeholder from "../public/placeholder_alt.png";
+import NextImage from "next/image";
+import useResponsive from "../utils/useResponsive";
+import {calcWidth} from "../utils/calcWidth";
 
 function Professors({ contacts, professors }) {
   const router = useRouter();
+
+  const windowSize = useResponsive();
+
+  let photoWidth;
+
+  if(windowSize.width > 600){
+    photoWidth = 180;
+  }else {
+    photoWidth = 120;
+  }
 
   return (
     <div style={{ display: "flex", flexDirection: "column", justifyContent: "flex-start" }}>
@@ -29,9 +43,13 @@ function Professors({ contacts, professors }) {
                 >
                   {prof.attributes.picture.data === null
                     ?
-                      <section className={styles["card-picture-placeholder"]}></section>
+                      <figure  className={styles["card-picture-placeholder"]} >
+                        <NextImage style={{borderRadius: "50%"}} width={photoWidth} height={photoWidth} src={placeholder} alt="placeholder" />
+                      </figure>
                     :
-                      <CustomImage width={150}  height={150} image={prof.attributes.picture}  className={styles["card-picture"]}/>
+                      <figure  className={styles["card-picture"]} >
+                        <CustomImage width={photoWidth}  height={photoWidth} style={{borderRadius: "50%"}} image={prof.attributes.picture} />
+                      </figure>
                   }
 
                   <div className={styles["card-content"]}>

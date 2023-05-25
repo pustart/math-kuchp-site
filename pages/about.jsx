@@ -11,12 +11,12 @@ import cardPic from "../public/graduate's hat and books.svg"
 import number1 from "../public/Number1BlackCircle.svg"
 import number2 from "../public/Number2BlackCircle.svg"
 import number3 from "../public/Number3BlackCircle.svg"
-import students from "../public/studentsPic.jpg"
 import ReactMarkdown from "react-markdown";
 import {getStrapiMedia} from "../lib/media";
 import {calcWidth} from "../utils/calcWidth";
 import NextImage from "next/image";
 import useResponsive from "../utils/useResponsive";
+import CustomImage from "../components/CustomImage/CustomImage";
 const { Meta } = Card;
 
 function About({contacts, about, mathCourses, otherCourses, bacCourses, masterCourses, specCourses,}) {
@@ -26,6 +26,11 @@ function About({contacts, about, mathCourses, otherCourses, bacCourses, masterCo
   let widthSmall = calcWidth(windowSize.width,0.9)
   let widthBig = calcWidth(windowSize.width,0.75)
 
+  let photoWidth;
+
+  photoWidth = windowSize.width > 600 ? 180 : 120
+
+
 
   return (
     <div style={{ display: "flex", flexDirection: "column", justifyContent: "flex-start" }}>
@@ -34,17 +39,19 @@ function About({contacts, about, mathCourses, otherCourses, bacCourses, masterCo
         <figure className={styles.picture}>
           {windowSize.width > 600
               ?
-              <Image
-                src={students}
+              <CustomImage
+                style={{borderRadius: 20}}
                 height={500}
                 width={widthBig}
+                image={about.photo}
                 alt="main"
               />
               :
-              <Image
-                src={students}
+              <CustomImage
+                style={{borderRadius: 20}}
                 height={250}
                 width={widthSmall}
+                image={about.photo}
                 alt="main"
               />
           }
@@ -66,8 +73,9 @@ function About({contacts, about, mathCourses, otherCourses, bacCourses, masterCo
               className={styles.card}
               cover={
                 <NextImage
-                  width={150}
-                  height={150}
+                  width={photoWidth}
+                  height={photoWidth}
+                  style={{borderRadius:"50%",width:photoWidth}}
                   src={getStrapiMedia(about.director)}
                   alt="Фотография зав. кафедры"
                 />
@@ -153,7 +161,7 @@ export async function getStaticProps() {
   });
   const history = await fetchAPI("istoriya-kafedry", {
     fields: ["history", "director_name"],
-    populate: ["director"],
+    populate: ["director","photo"],
   });
   const mathCourses = await fetchAPI("kursy-matematicheskogo-fakulteta", {
     fields: ["math_courses", "title"],

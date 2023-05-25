@@ -32,6 +32,24 @@
   font-size: 24px;
 }
 
+.content a {
+  text-decoration: none;
+
+  color: var(--accent-strong);
+}
+
+.content a:hover {
+  text-decoration: underline;
+
+  color: var(--accent-strong);
+}
+
+.content a:visited {
+  text-decoration: none;
+
+  color: var(--accent-strong-up);
+}
+
 @media (max-width: 600px) {
   .one-new-container {
     display: flex;
@@ -69,5 +87,23 @@
 
     font-family: Inter, serif;
     font-size: 24px;
+  }
+
+  .content a {
+    text-decoration: none;
+
+    color: var(--accent-strong);
+  }
+
+  .content a:hover {
+    text-decoration: underline;
+
+    color: var(--accent-strong);
+  }
+
+  .content a:visited {
+    text-decoration: none;
+
+    color: var(--accent-strong-up);
   }
 }

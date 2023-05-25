@@ -8,9 +8,10 @@ import NoData from "../components/NoData/NoData";
 import useResponsive from "../utils/useResponsive";
 import {calcWidth} from "../utils/calcWidth";
 import ReactMarkdown from "react-markdown";
-import CustomImage from "../components/CustomImage/CustomImage";
+import NextImage from "next/image";
+import studentsPhoto from "../public/students.webp"
 
-function Students({ contacts, students,history}) {
+function Students({ contacts, students}) {
   const map = new Map();
 
   function compareNumbers(a, b) {
@@ -53,9 +54,9 @@ function Students({ contacts, students,history}) {
         <figure className={styles.image}>
           {windowSize.width > 600
             ?
-              <CustomImage height={500} width={widthBig} image={history.timetable}/>
+              <NextImage height={500} width={widthBig} src={studentsPhoto} alt="students"/>
             :
-              <CustomImage height={160} width={widthSmall} image={history.timetable}/>
+              <NextImage height={160} width={widthSmall} src={studentsPhoto} alt="students"/>
           }
         </figure>
         {students.length === 0 ? (
@@ -76,7 +77,7 @@ function Students({ contacts, students,history}) {
                       <section>
                         <h2>{value.course}</h2>
                         <div style={{ marginTop: "2%" }}>
-                          <ReactMarkdown children={value.student_list} />
+                          <ReactMarkdown className={styles.text} children={value.student_list} />
                         </div>
                       </section>
                     )}
@@ -100,14 +101,9 @@ export async function getStaticProps() {
   const students = await fetchAPI("spisok-studentovs", {
     fields: ["course", "study_year", "student_list","sort_id"],
   });
-  const history = await fetchAPI("istoriya-kafedry", {
-    fields: [],
-    populate: ["timetable"],
-  });
 
   return {
     props: {
-      history:history.data.attributes,
       contacts: contacts.data.attributes,
       students: students.data,
     },
