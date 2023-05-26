@@ -6,19 +6,22 @@
 }
 
 .picture {
-  width: 80%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 75%;
 }
 
 .about-block {
   display: grid;
 
   width: 80%;
-  margin-top: 4%;
+  margin-top: 2%;
   margin-left: 5%;
   grid-template: "text card";
-  grid-gap: 20px;
+  grid-gap: 20px 30%;
   grid-template-columns: 40% 30%;
-  grid-column-gap: 20%;
 }
 
 .about-block-text {
@@ -50,6 +53,24 @@
 
 .history-block-text {
   font-size: 14px;
+}
+
+.history-block-text a {
+  text-decoration: none;
+
+  color: var(--accent-strong);
+}
+
+.history-block-text a:hover {
+  text-decoration: underline;
+
+  color: var(--accent-strong);
+}
+
+.history-block-text a:visited {
+  text-decoration: none;
+
+  color: var(--accent-strong-up);
 }
 
 .courses {
@@ -109,7 +130,11 @@
 
   border-radius: 40px;
 
-  background: var(--light-green);
+  background: #BEEEC3;
+}
+
+.card-number {
+  margin-left: -1%;
 }
 
 .special-courses-master-card {
@@ -123,7 +148,7 @@
 
   border-radius: 40px;
 
-  background: var(--light-yellow);
+  background: #F3E7BC;
 }
 
 .special-courses-spec-card {
@@ -137,7 +162,7 @@
 
   border-radius: 40px;
 
-  background: var(--light-red-grad);
+  background: linear-gradient(180deg, #F8A4A4 0%, rgb(248 164 164 / 0%) 100%);
 }
 
 .special-courses-pic-card {
@@ -149,11 +174,174 @@
   height: 100%;
 
   border-radius: 40px;
-  background: var(--light-blue-grad);
+  background: linear-gradient(90deg, #BED9EE 0%, rgb(190 217 238 / 0%) 100%);
 }
 
 .card-title {
-  font-family: var(--font-family);
+  font-family: Inter, serif;
   font-size: 28px;
   font-weight: 700;
+}
+
+@media (max-width: 600px) {
+  .container {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-around;
+  }
+
+  .picture {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 75%;
+  }
+
+  .about-block {
+    display: flex;
+    flex-direction: column;
+
+    width: 90%;
+    margin-top: 4%;
+    margin-left: 0;
+  }
+
+  .about-block-text {
+    color: rgb(0 0 0 / 80%);
+
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 19px;
+  }
+
+  .about-block-card {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: center;
+  }
+
+  .card {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: space-evenly;
+
+    width: 100%;
+    height: 22vh;
+  }
+
+  .history-block {
+    width: 90%;
+    margin-top: 4%;
+  }
+
+  .history-block-text {
+    font-size: 14px;
+  }
+
+  .courses {
+    width: 90%;
+    margin-top: 4%;
+  }
+
+  .special-courses {
+    display: flex;
+    flex-direction: column;
+
+    width: 90%;
+
+    margin-bottom: 5%;
+  }
+
+  .special-courses-title {
+    align-self: flex-start;
+
+    width: 75%;
+
+    margin-top: 4%;
+    margin-left: 5%;
+  }
+
+  .special-courses-bac {
+    grid-area: bac;
+  }
+
+  .special-courses-master {
+    grid-area: master;
+  }
+
+  .special-courses-spec {
+    grid-area: spec;
+  }
+
+  .special-courses-pic {
+    grid-area: empty;
+  }
+
+  .special-courses-bac-card {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-between;
+
+    width: 100%;
+    height: 100%;
+
+    border-radius: 40px;
+
+    background: #BEEEC3;
+  }
+
+  .special-courses-master-card {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-between;
+
+    width: 100%;
+    height: 100%;
+
+    border-radius: 40px;
+
+    background: #F3E7BC;
+  }
+
+  .special-courses-spec-card {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-between;
+
+    width: 100%;
+    height: 100%;
+
+    border-radius: 40px;
+
+    background: linear-gradient(180deg, #F8A4A4 0%, rgb(248 164 164 / 0%) 100%);
+  }
+
+  .special-courses-pic-card {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 100%;
+    height: 100%;
+
+    border-radius: 40px;
+    background: var(--light-blue-grad);
+  }
+
+  .card-title {
+    font-family: Inter, serif;
+    font-size: 28px;
+    font-weight: 700;
+  }
+
+  .card-number {
+    margin-left: -1%;
+  }
 }

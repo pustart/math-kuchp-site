@@ -1,0 +1,163 @@
+.one-prof-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+
+  width: 75%;
+  min-height: 50vh;
+  margin-bottom: 4%;
+  margin-left: 12%;
+}
+
+.image {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 33%;
+}
+
+.info {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  justify-content: flex-start;
+
+  width: 66%;
+  margin-left: 4%;
+}
+
+.name {
+  font-family: Inter, serif;
+  font-size: 28px;
+  font-weight: 600;
+}
+
+.h4 {
+  margin-top: 0;
+}
+
+.text {
+  margin-top: 4%;
+
+  color: rgb(0 0 0 / 80%);
+
+  font-family: Inter, serif;
+  font-size: 20px;
+  font-weight: 400;
+}
+
+.text a {
+  text-decoration: none;
+
+  color: var(--accent-strong);
+}
+
+.text a:hover {
+  text-decoration: underline;
+
+  color: var(--accent-strong);
+}
+
+.text a:visited {
+  text-decoration: none;
+
+  color: var(--accent-strong-up);
+}
+
+.email {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+
+  margin-top: 1%;
+}
+
+.collapse {
+  width: 100%;
+  margin-top: 4%;
+}
+
+@media (max-width: 600px) {
+  .one-prof-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+
+    width: 90%;
+    min-height: 50vh;
+    margin-top: 4%;
+    margin-bottom: 4%;
+    margin-left: 5%;
+  }
+
+  .image {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 33%;
+  }
+
+  .info {
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    justify-content: flex-start;
+
+    width: 90%;
+    margin-top: 4%;
+    margin-left: 5%;
+  }
+
+  .name {
+    font-family: Inter, serif;
+    font-size: 28px;
+    font-weight: 600;
+  }
+
+  .h4 {
+    margin-top: 0;
+  }
+
+  .text {
+    margin-top: 4%;
+
+    color: rgb(0 0 0 / 80%);
+
+    font-family: Inter, serif;
+    font-size: 20px;
+    font-weight: 400;
+  }
+
+  .text a {
+    text-decoration: none;
+
+    color: var(--accent-strong);
+  }
+
+  .text a:hover {
+    text-decoration: underline;
+
+    color: var(--accent-strong);
+  }
+
+  .text a:visited {
+    text-decoration: none;
+
+    color: var(--accent-strong-up);
+  }
+
+  .email {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+
+    margin-top: 1%;
+  }
+
+  .collapse {
+    width: 100%;
+    margin-top: 4%;
+  }
+}

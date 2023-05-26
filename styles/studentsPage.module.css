@@ -1,0 +1,193 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+
+  width: 75%;
+  min-height: 100vh;
+  margin-left: 12%;
+}
+
+.image {
+  width: 100%;
+  margin-left: -0.1%;
+}
+
+.no-data {
+  margin-top: 10%;
+}
+
+.block {
+  display: grid;
+
+  height: 100%;
+  margin-top: 2%;
+  margin-bottom: 5%;
+
+  grid-template:
+    "dropdown man man man"
+    "dropdown man man man"
+    "dropdown man man man"
+    "dropdown man man man";
+  grid-template-rows: 20% 30% 25% 25%;
+  grid-gap: 50px;
+  grid-template-columns: 20% 40% 20% 20%;
+}
+
+.dropdown {
+  grid-area: dropdown;
+}
+
+.text {
+  color: rgb(0 0 0 / 80%);
+}
+
+.text a {
+  text-decoration: none;
+
+  color: var(--accent-strong);
+}
+
+.text a:hover {
+  text-decoration: underline;
+
+  color: var(--accent-strong);
+}
+
+.text a:visited {
+  text-decoration: none;
+
+  color: var(--accent-strong-up);
+}
+
+.list {
+  grid-area: man;
+}
+
+.list-item {
+  margin-top: 1%;
+
+  font-family: Inter, serif;
+  font-weight: 400;
+}
+
+@media (max-width: 600px) {
+  .container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+
+    width: 90%;
+    min-height: 100vh;
+    margin-left: 5%;
+  }
+
+  .image {
+    width: 100%;
+    margin-left: -1%;
+  }
+
+  .block {
+    display: flex;
+    flex-direction: column;
+
+    height: 100%;
+    margin-top: 0;
+    margin-bottom: 5%;
+  }
+
+  .text {
+    color: rgb(0 0 0 / 80%);
+  }
+
+  .text a {
+    text-decoration: none;
+
+    color: var(--accent-strong);
+  }
+
+  .text a:hover {
+    text-decoration: underline;
+
+    color: var(--accent-strong);
+  }
+
+  .text a:visited {
+    text-decoration: none;
+
+    color: var(--accent-strong-up);
+  }
+
+  .dropdown {
+    margin-top: 5%;
+  }
+
+  .no-data {
+    margin-top: 20%;
+  }
+
+  .list {
+    margin-top: 0;
+  }
+
+  .list-item {
+    margin-top: 1%;
+
+    font-family: Inter, serif;
+    font-weight: 400;
+  }
+}
+
+@media (max-width: 1400px) and (min-width: 800px) {
+  .container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+
+    width: 75%;
+    min-height: 100vh;
+    margin-left: 12%;
+  }
+
+  .image {
+    width: 100%;
+    margin-left: -0.1%;
+  }
+
+  .no-data {
+    margin-top: 10%;
+  }
+
+  .block {
+    display: grid;
+
+    width: 85%;
+    height: 100%;
+    margin-top: 10%;
+    margin-bottom: 5%;
+
+    grid-template:
+      "dropdown man man man"
+      "dropdown man man man"
+      "dropdown man man man"
+      "dropdown man man man";
+    grid-template-rows: 20% 30% 25% 25%;
+    grid-gap: 50px;
+    grid-template-columns: 20% 40% 20% 20%;
+  }
+
+  .dropdown {
+    grid-area: dropdown;
+  }
+
+  .list {
+    grid-area: man;
+  }
+
+  .list-item {
+    margin-top: 1%;
+
+    font-family: Inter, serif;
+    font-weight: 400;
+  }
+}
