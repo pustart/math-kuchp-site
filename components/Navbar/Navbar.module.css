@@ -1,5 +1,6 @@
 .layout {
   color: var(--base-weak);
+  background: var(--base-weak);
 }
 
 .header {
@@ -52,6 +53,10 @@
   font-size: 24px;
   font-weight: 600;
   font-style: normal;
+}
+
+.emblem-text:hover {
+  color: var(--accent-strong);
 }
 
 @media (max-width: 600px) {

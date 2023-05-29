@@ -10,9 +10,13 @@ import boyAndGirl from "../public/boyandgirl.png";
 import CustomFooter from "../components/Footer/CustomFooter";
 import { fetchAPI } from "../lib/api";
 import "moment/locale/ru";
+import Error from 'next/error';
 import useResponsive from "../utils/useResponsive";
 
 export default function Home({ contacts, freshNew }) {
+  if (!contacts) {
+    return <Error statusCode={404}></Error>;
+  }
   const router = useRouter();
 
   const windowSize = useResponsive();
@@ -40,9 +44,9 @@ export default function Home({ contacts, freshNew }) {
           <figure className={styles["about-block-chart"]}>
             {windowSize.width > 1400
               ?
-                <Image src={pieChart} height={400} width={400} alt="Декоративная картинка." />
+              <Image src={pieChart} height={400} width={400} alt="Декоративная картинка." />
               :
-                <Image src={pieChart} height={300} width={300} alt="Декоративная картинка." />
+              <Image src={pieChart} height={300} width={300} alt="Декоративная картинка." />
             }
           </figure>
         </section>
@@ -62,12 +66,23 @@ export default function Home({ contacts, freshNew }) {
                   flexDirection: "column",
                 }}
               >
-                <section className={styles["card-big-text"]}>{freshNew.title}</section>
-                <section className={styles["card-small-text"]}>
-                  <Moment locale="ru" format="ll">
-                    {freshNew.publish_date}
-                  </Moment>
-                </section>
+                {freshNew === null
+                  ?
+                  <section className={styles["card-big-text"]}>Актуальных новостей нет</section>
+                  :
+                  <section className={styles["card-big-text"]}>{freshNew.title}</section>
+
+                }
+                {freshNew === null
+                  ?
+                  <section className={styles["card-small-text"]}></section>
+                  :
+                  <section className={styles["card-small-text"]}>
+                    <Moment locale="ru" format="ll">
+                      {freshNew.publish_date}
+                    </Moment>
+                  </section>
+                }
                 <section className={styles["card-news-title"]}>Новости</section>
               </Card>
             </section>
@@ -117,13 +132,37 @@ export default function Home({ contacts, freshNew }) {
 }
 
 export async function getStaticProps() {
-  const contacts = await fetchAPI("contact", {
-    fields: ["email", "general_number", "dean_number", "address"],
-  });
-  const news = await fetchAPI("novosti", {
-    fields: ["title", "publish_date", "body"],
-    sort: ["publish_date:desc"],
-  });
+  let contacts = undefined;
+  let news = undefined;
+
+  try {
+    contacts = await fetchAPI("contact", {
+      fields: ["email", "general_number", "dean_number", "address"],
+    });
+
+    news = await fetchAPI("novosti", {
+      fields: ["title", "publish_date", "body"],
+      sort: ["publish_date:desc"],
+    });
+  } catch (error) {
+    return {
+      props: {
+        contacts: null,
+        freshNew: null,
+      },
+      revalidate: 1,
+    };
+  }
+
+  if (news.data.length === 0) {
+    return {
+      props: {
+        contacts: contacts.data.attributes,
+        freshNew: null,
+      },
+      revalidate: 1,
+    };
+  }
 
   return {
     props: {

@@ -20,16 +20,16 @@
     );
   --light-blue-grad:
     linear-gradient(
-      90.91deg,
-      var(--light-blue) 0.67%,
-      rgb(190 217 238 / 0%) 99.21%
+      90deg,
+      var(--light-blue) 1%,
+      rgb(190 217 238 / 0%) 100%
     );
   --light-green-grad:
     linear-gradient(
-      89.05deg,
-      var(--light-green) 12.31%,
-      var(--accent-strong) 99.39%,
-      rgb(68 187 168 / 0%) 99.39%
+      90deg,
+      var(--light-green) 12%,
+      var(--accent-strong) 100%,
+      rgb(68 187 168 / 0%) 100%
     );
 }
 
