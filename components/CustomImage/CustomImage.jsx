@@ -2,15 +2,27 @@ import NextImage from "next/image";
 import { getStrapiMedia } from "../../lib/media";
 
 function CustomImage(props) {
-
   const { alternativeText, width, height } = props.image.data.attributes;
 
+  let imageWidth
+  if(isNaN(props.width)){
+    imageWidth = 100
+  }else{
+    imageWidth = props.width
+  }
+
+  let imageHeight
+  if(isNaN(props.height)){
+    imageHeight = 100
+  }else{
+    imageHeight = props.height
+  }
 
   return (
     <NextImage
       style={props.style}
-      width={props.width !== undefined ? props.width : width}
-      height={props.height !== undefined ? props.height : height}
+      width={props.width !== undefined ? imageWidth : width}
+      height={props.height !== undefined ? imageHeight : height}
       src={getStrapiMedia(props.image)}
       alt={alternativeText || ""}
     />

@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect} from "react";
 import { useRouter } from "next/navigation";
 import Navbar from "../components/Navbar/Navbar";
 import CustomFooter from "../components/Footer/CustomFooter";
@@ -9,13 +9,11 @@ import CustomImage from "../components/CustomImage/CustomImage";
 import placeholder from "../public/placeholder_alt.png";
 import NextImage from "next/image";
 import useResponsive from "../utils/useResponsive";
-import {calcWidth} from "../utils/calcWidth";
 
 function Professors({ contacts, professors }) {
   const router = useRouter();
 
   const windowSize = useResponsive();
-
   let photoWidth;
 
   if(windowSize.width > 600){
