@@ -30,8 +30,6 @@ function About({contacts, about, mathCourses, otherCourses, bacCourses, masterCo
 
   photoWidth = windowSize.width > 600 ? 180 : 120
 
-
-
   return (
     <div style={{ display: "flex", flexDirection: "column", justifyContent: "flex-start" }}>
       <Navbar />
