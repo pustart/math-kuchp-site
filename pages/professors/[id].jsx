@@ -14,10 +14,6 @@ import NextImage from "next/image";
 function OneProfessorPage({ contacts, profs }) {
 
   const windowSize = useResponsive();
-  console.log(windowSize)
-  useEffect(() => {
-    console.log("cringe")
-  },[])
 
   let bigWidth = calcWidth(windowSize.width,0.5)
   let smallWidth = calcWidth(windowSize.width,0.9)

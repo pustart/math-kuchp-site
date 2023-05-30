@@ -16,10 +16,6 @@ function Professors({ contacts, professors }) {
   const windowSize = useResponsive();
   let photoWidth;
 
-  useEffect(() => {
-    console.log("xyi")
-  },[])
-
   if(windowSize.width > 600){
     photoWidth = 180;
   }else {

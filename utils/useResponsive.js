@@ -9,7 +9,6 @@ const useResponsive = () => {
   useEffect(() => {
     function handleResize() {
       // Set window width/height to state
-      //console.log("log",window)
       setWindowSize({
         width: window.innerWidth,
         height: window.innerHeight,
@@ -22,7 +21,6 @@ const useResponsive = () => {
 
     return () => window.removeEventListener("resize", handleResize);
   }, []);
-  console.log("final log",windowSize)
   return windowSize;
 };
 
