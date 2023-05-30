@@ -27,8 +27,8 @@ function Professors({ contacts, professors }) {
   }
 
   return (
-    <div style={{ display: "flex", flexDirection: "column", justifyContent: "flex-start" }}>
-      <Navbar />
+    <div style={{ display: "flex", flexDirection: "column", justifyContent: "flex-start", minHeight: "100vh"}}>
+      <Navbar/>
       <main className={styles.container}>
         <h1>О сотрудниках</h1>
         {professors.length === 0

@@ -24,7 +24,7 @@ function Methodics({ contacts, methodics }) {
   const data = Array.from(map.entries());
 
   return (
-    <div style={{ display: "flex", flexDirection: "column", justifyContent: "flex-start" }}>
+    <div style={{ display: "flex", flexDirection: "column", justifyContent: "flex-start", minHeight: "100vh" }}>
       <Navbar />
       <main className={styles.container}>
         <h1>Методические пособия</h1>

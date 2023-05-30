@@ -8,7 +8,7 @@ import NoData from "../components/NoData/NoData";
 
 function QA({ contacts, questions }) {
   return (
-    <div style={{ display: "flex", flexDirection: "column", justifyContent: "flex-start" }}>
+    <div style={{ display: "flex", flexDirection: "column", justifyContent: "flex-start", minHeight: "100vh" }}>
       <Navbar />
       <main className={styles.container}>
         <h1>Q&A</h1>

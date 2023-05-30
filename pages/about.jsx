@@ -17,10 +17,13 @@ import {calcWidth} from "../utils/calcWidth";
 import NextImage from "next/image";
 import useResponsive from "../utils/useResponsive";
 import CustomImage from "../components/CustomImage/CustomImage";
+import Error from 'next/error';
 const { Meta } = Card;
 
 function About({contacts, about, mathCourses, otherCourses, bacCourses, masterCourses, specCourses,}) {
-
+  if (!contacts || !about || !mathCourses || !otherCourses || !bacCourses || !masterCourses || !specCourses) {
+    return <Error statusCode={404}></Error>;;
+  }
   const windowSize = useResponsive();
 
   let widthSmall = calcWidth(windowSize.width,0.9)
@@ -154,28 +157,52 @@ function About({contacts, about, mathCourses, otherCourses, bacCourses, masterCo
 }
 
 export async function getStaticProps() {
-  const contacts = await fetchAPI("contact", {
-    fields: ["email", "general_number", "dean_number", "address"],
-  });
-  const history = await fetchAPI("istoriya-kafedry", {
-    fields: ["history", "director_name"],
-    populate: ["director","photo"],
-  });
-  const mathCourses = await fetchAPI("kursy-matematicheskogo-fakulteta", {
-    fields: ["math_courses", "title"],
-  });
-  const otherCourses = await fetchAPI("prochie-kursy", {
-    fields: ["other_courses", "title"],
-  });
-  const bacCourses = await fetchAPI("speczkursy-dlya-bakalavrov", {
-    fields: ["courses", "for_bachelor"],
-  });
-  const masterCourses = await fetchAPI("speczkursy-dlya-magistrov", {
-    fields: ["courses", "for_masters"],
-  });
-  const specCourses = await fetchAPI("speczkursy-dlya-speczialistov", {
-    fields: ["courses", "for_specialists"],
-  });
+  let contacts = undefined;
+  let history = undefined;
+  let mathCourses = undefined;
+  let otherCourses = undefined;
+  let bacCourses = undefined;
+  let masterCourses = undefined;
+  let specCourses = undefined;
+
+  try {
+    contacts = await fetchAPI("contact", {
+      fields: ["email", "general_number", "dean_number", "address"],
+    });
+    history = await fetchAPI("istoriya-kafedry", {
+      fields: ["history", "director_name"],
+      populate: ["director", "photo"],
+    });
+    mathCourses = await fetchAPI("kursy-matematicheskogo-fakulteta", {
+      fields: ["math_courses", "title"],
+    });
+    otherCourses = await fetchAPI("prochie-kursy", {
+      fields: ["other_courses", "title"],
+    });
+    bacCourses = await fetchAPI("speczkursy-dlya-bakalavrov", {
+      fields: ["courses", "for_bachelor"],
+    });
+    masterCourses = await fetchAPI("speczkursy-dlya-magistrov", {
+      fields: ["courses", "for_masters"],
+    });
+    specCourses = await fetchAPI("speczkursy-dlya-speczialistov", {
+      fields: ["courses", "for_specialists"],
+    });
+  } catch (error) {
+    return {
+      props: {
+        contacts: null,
+        about: null,
+        mathCourses: null,
+        otherCourses: null,
+        bacCourses: null,
+        masterCourses: null,
+        specCourses: null,
+      },
+      revalidate: 1,
+    };
+  }
+
   return {
     props: {
       contacts: contacts.data.attributes,
