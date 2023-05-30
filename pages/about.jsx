@@ -18,6 +18,7 @@ import NextImage from "next/image";
 import useResponsive from "../utils/useResponsive";
 import CustomImage from "../components/CustomImage/CustomImage";
 import Error from 'next/error';
+import placeholder from "../public/placeholder_alt.png";
 const { Meta } = Card;
 
 function About({contacts, about, mathCourses, otherCourses, bacCourses, masterCourses, specCourses,}) {
@@ -69,21 +70,13 @@ function About({contacts, about, mathCourses, otherCourses, bacCourses, masterCo
             </section>
           </div>
           <div className={styles["about-block-card"]}>
-            <Card
-              hoverable
-              className={styles.card}
-              cover={
-                <NextImage
-                  width={photoWidth}
-                  height={photoWidth}
-                  style={{borderRadius:"50%",width:photoWidth}}
-                  src={getStrapiMedia(about.director)}
-                  alt="Фотография зав. кафедры"
-                />
-              }
-            >
-              <Meta title={about.director_name} description="Заведующий кафедры" />
-            </Card>
+            <figure  >
+              <NextImage style={{borderRadius: "50%"}} width={photoWidth} height={photoWidth} src={getStrapiMedia(about.director)} alt="Фотография зав. кафедры" />
+            </figure>
+            <div className={styles["about-block-card-container"]} >
+              <p>{about.director_name}</p>
+              <span>Заведующий кафедры</span>
+            </div>
           </div>
         </section>
         <section className={styles["history-block"]}>
