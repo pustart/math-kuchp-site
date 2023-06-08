@@ -9,12 +9,11 @@
   "plugins": [
     "react",
     "jsx-a11y",
-    "react-hooks",
-    "prettier"
+    "react-hooks"
   ],
   "rules": {
-    "prettier/prettier": "warn",
-    "react/jsx-props-no-spreading": "warn",
+    "react/jsx-props-no-spreading": "off",
+    "react/destructuring-assignment": "off",
     "indent": [
       "warn",
       2
@@ -23,7 +22,6 @@
   },
   "extends": [
    "airbnb",
-   "next",
-   "prettier"
+   "next"
   ]
 }

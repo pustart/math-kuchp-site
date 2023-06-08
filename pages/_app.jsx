@@ -1,6 +1,6 @@
-import "../styles/globals.css";
-import Head from "next/head";
-import React from "react";
+import '../styles/globals.css';
+import Head from 'next/head';
+import React from 'react';
 
 export default function MyApp({ Component, pageProps }) {
   return (

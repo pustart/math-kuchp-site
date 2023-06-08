@@ -1,13 +1,13 @@
-import React, { useState } from "react";
-import { ConfigProvider, Layout, Menu } from "antd";
-import Image from "next/image";
-import { DownOutlined } from "@ant-design/icons";
-import { useRouter } from "next/navigation";
-import Link from "next/link";
-import pic from "../../public/logo.png";
-import styles from "./Navbar.module.css";
-import useResponsive from "../../utils/useResponsive";
-import HamburgerMenu from "../HamburgerMenu/HamburgerMenu";
+import React, { useState } from 'react';
+import { ConfigProvider, Layout, Menu } from 'antd';
+import Image from 'next/image';
+import { DownOutlined } from '@ant-design/icons';
+import { useRouter } from 'next/navigation';
+import Link from 'next/link';
+import pic from '../../public/logo.png';
+import styles from './Navbar.module.css';
+import useResponsive from '../../utils/useResponsive';
+import HamburgerMenu from '../HamburgerMenu/HamburgerMenu';
 
 function Navbar() {
   const router = useRouter();
@@ -21,7 +21,7 @@ function Navbar() {
           О кафедре
         </Link>
       ),
-      key: "main",
+      key: 'main',
     },
     {
       label: (
@@ -29,16 +29,16 @@ function Navbar() {
           Новости
         </Link>
       ),
-      key: "app",
+      key: 'app',
     },
     {
       label: (
-        <div className={styles["students-dropdown"]}>
+        <div className={styles['students-dropdown']}>
           Студентам
-          <DownOutlined style={{ marginLeft: "5%" }} />
+          <DownOutlined style={{ marginLeft: '5%' }} />
         </div>
       ),
-      key: "SubMenu",
+      key: 'SubMenu',
       children: [
         {
           label: (
@@ -69,10 +69,10 @@ function Navbar() {
           Преподаватели
         </Link>
       ),
-      key: "professors",
+      key: 'professors',
     },
   ];
-  const [current, setCurrent] = useState("");
+  const [current, setCurrent] = useState('');
   const onClickHandler = (e) => {
     setCurrent(e.key);
   };
@@ -83,39 +83,39 @@ function Navbar() {
     <Layout className={styles.layout}>
       <div className={styles.header}>
         <div className={styles.emblem}>
-          <div className={styles["emblem-pic"]}>
-            {windowSize.width > 600 ?
+          <div className={styles['emblem-pic']}>
+            {windowSize.width > 600 ? (
               <Image
                 width={150}
                 height={150}
                 src={pic}
                 alt="Логотип математического факультета ВГУ."
               />
-              :
+            ) : (
               <Image
                 width={100}
                 height={100}
                 src={pic}
                 alt="Логотип математического факультета ВГУ."
               />
-            }
+            )}
           </div>
-          <div onClick={() => router.push("/")} className={styles["emblem-text"]}>
+          <div onClick={() => router.push('/')} className={styles['emblem-text']}>
             Кафедра уравнений в частных производных и теории вероятностей
           </div>
         </div>
-        {windowSize.width > 600 ?
+        {windowSize.width > 600 ? (
           <div className={styles.menu}>
             <ConfigProvider
               theme={{
                 token: {
-                  colorPrimary: "#44BBA8",
+                  colorPrimary: '#44BBA8',
                 },
               }}
             >
               <Menu
                 className={styles.navbar}
-                style={{ border: "none", width: 500, marginTop: 35 }}
+                style={{ border: 'none', width: 500, marginTop: 35 }}
                 theme="light"
                 onClick={onClickHandler}
                 selectedKeys={[current]}
@@ -124,17 +124,18 @@ function Navbar() {
               />
             </ConfigProvider>
           </div>
-         :
-          <div className={styles.menu}>
-            <div
-              onClick={() => setOpened((prevState) => !prevState)}
-              className={opened ? styles["burger-btn-hidden"] : styles["burger-btn"]}
-            >
-              <span className={styles["burger-btn-span"]} />
+        )
+          : (
+            <div className={styles.menu}>
+              <div
+                onClick={() => setOpened((prevState) => !prevState)}
+                className={opened ? styles['burger-btn-hidden'] : styles['burger-btn']}
+              >
+                <span className={styles['burger-btn-span']} />
+              </div>
+              <HamburgerMenu setOpen={setOpened} open={opened} />
             </div>
-            <HamburgerMenu setOpen={setOpened} open={opened} />
-          </div>
-        }
+          )}
       </div>
     </Layout>
   );

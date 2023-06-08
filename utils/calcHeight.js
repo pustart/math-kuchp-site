@@ -1,3 +1,1 @@
-export const calcHeight = (windowSize, percent) => {
-  return windowSize * percent
-}
+export const calcHeight = (windowSize, percent) => windowSize * percent;
