@@ -1,4 +1,4 @@
-import DisplaySize from "./DeviceWidth";
+import DisplaySize from './DeviceWidth';
 
 const determineDisplaySize = (width) => {
   if (width >= DisplaySize.mobile) {
