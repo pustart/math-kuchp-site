@@ -13,7 +13,7 @@ COPY --from=deps /app/node_modules ./node_modules
 COPY . .
 COPY public ./public
 COPY package.json next.config.js ./
-RUN npm pkg delete scripts.prepare && npm run build
+RUN npm run build
 
 # Stage 3: run
 FROM node:18-alpine
