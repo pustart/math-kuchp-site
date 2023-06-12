@@ -1,0 +1,16 @@
+.header {
+  border-style: none;
+  background-color: var(--base-weak);
+
+  font-family: var(--font-family);
+  font-size: 18px;
+  font-weight: 700;
+  font-style: normal;
+}
+
+.text {
+  margin-left: 2%;
+
+  font-size: 14px;
+  font-weight: normal;
+}
